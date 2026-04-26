@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\Articles\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
@@ -12,17 +14,20 @@ class ArticleForm
     {
         return $schema
             ->components([
-                TextInput::make('id_user')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('id_category_articles')
-                    ->required()
-                    ->numeric(),
+                Select::make('id_user')
+                    ->relationship(name: 'user', titleAttribute: 'name')
+                    ->required(),
+                    // ->searchable(),
+                    // ->numeric(),
+                Select::make('id_category_articles')
+                    ->relationship(name: 'category', titleAttribute: 'name')
+                    ->required(),
+                    // ->searchable(),
                 TextInput::make('title')
                     ->required(),
                 TextInput::make('slug')
                     ->required(),
-                Textarea::make('content')
+                RichEditor::make('content')
                     ->required()
                     ->columnSpanFull(),
             ]);
