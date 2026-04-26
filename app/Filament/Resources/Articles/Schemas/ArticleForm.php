@@ -14,11 +14,6 @@ class ArticleForm
     {
         return $schema
             ->components([
-                Select::make('id_user')
-                    ->relationship(name: 'user', titleAttribute: 'name')
-                    ->required(),
-                    // ->searchable(),
-                    // ->numeric(),
                 Select::make('id_category_articles')
                     ->relationship(name: 'category', titleAttribute: 'name')
                     ->required(),

@@ -19,7 +19,7 @@ class DokumenResource extends Resource
 {
     protected static ?string $model = Dokumen::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentArrowDown;
     protected static string |UnitEnum| null $navigationGroup = 'Arsip Dokumen';
 
     protected static ?string $recordTitleAttribute = 'Dokumen';

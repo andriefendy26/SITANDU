@@ -12,9 +12,6 @@ class KegiatanOpdForm
     {
         return $schema
             ->components([
-                TextInput::make('id_user')
-                    ->required()
-                    ->numeric(),
                 TextInput::make('id_kategori_kegiatan_opd')
                     ->required()
                     ->numeric(),

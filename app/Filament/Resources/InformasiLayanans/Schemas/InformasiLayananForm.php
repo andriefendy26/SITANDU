@@ -12,9 +12,6 @@ class InformasiLayananForm
     {
         return $schema
             ->components([
-                TextInput::make('id_user')
-                    ->required()
-                    ->numeric(),
                 TextInput::make('id_kategori_layanan')
                     ->required()
                     ->numeric(),

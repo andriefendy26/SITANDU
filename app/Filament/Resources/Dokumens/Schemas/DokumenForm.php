@@ -4,6 +4,9 @@ namespace App\Filament\Resources\Dokumens\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Fileupload;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class DokumenForm
@@ -12,18 +15,20 @@ class DokumenForm
     {
         return $schema
             ->components([
-                TextInput::make('id_user')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('id_jenis_dokumen')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('title')
-                    ->required(),
-                TextInput::make('path')
-                    ->required(),
-                Textarea::make('note')
-                    ->columnSpanFull(),
-            ]);
+                Section::make('Informasi Dokumen')->schema([
+                    TextInput::make('title')
+                        ->required(),
+                    Select::make('id_jenis_dokumen')->relationship('jenisDokumen', 'title')
+                        ->required(),
+                    Textarea::make('note')
+                        ->columnSpanFull(),
+                ])->columns(2),
+                Section::make('File Dokumen')->schema([
+                    FileUpload::make('path')
+                        ->disk('documents')
+                        ->label('File Dokumen')
+                        ->required(),
+                ])->columns(1),
+            ])->columns(1);
     }
 }

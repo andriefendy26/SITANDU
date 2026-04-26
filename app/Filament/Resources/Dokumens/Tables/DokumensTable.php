@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Dokumens\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -14,15 +15,21 @@ class DokumensTable
     {
         return $table
             ->columns([
-                TextColumn::make('id_user')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('id_jenis_dokumen')
-                    ->numeric()
+                TextColumn::make('JenisDokumen.title')
+                    ->badge()
+                    ->color('info')
                     ->sortable(),
                 TextColumn::make('title')
+                    ->label('Judul Dokumen')
+                    ->wrap()
                     ->searchable(),
                 TextColumn::make('path')
+                    ->label('File')
+                    ->formatStateUsing(fn () => 'Download Document')
+                    ->url(fn ($record) => asset('storage/documents/' . $record->path))
+                    ->openUrlInNewTab()
+                    ->color('success')
+                    ->icon('heroicon-o-document')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -37,6 +44,7 @@ class DokumensTable
                 //
             ])
             ->recordActions([
+                DeleteAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

@@ -14,10 +14,10 @@ class ArticlesTable
     {
         return $table
             ->columns([
-                TextColumn::make('id_user')
+                TextColumn::make('User.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('id_category_articles')
+                TextColumn::make('Category.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')

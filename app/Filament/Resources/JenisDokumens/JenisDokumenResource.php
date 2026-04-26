@@ -19,7 +19,8 @@ class JenisDokumenResource extends Resource
 {
     protected static ?string $model = JenisDokumen::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
+    
     protected static string |UnitEnum| null $navigationGroup = 'Arsip Dokumen';
 
     protected static ?string $recordTitleAttribute = 'JenisDokumen';
