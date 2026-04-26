@@ -9,6 +9,7 @@ use App\Filament\Resources\JenisDokumens\Schemas\JenisDokumenForm;
 use App\Filament\Resources\JenisDokumens\Tables\JenisDokumensTable;
 use App\Models\JenisDokumen;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,7 @@ class JenisDokumenResource extends Resource
     protected static ?string $model = JenisDokumen::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string |UnitEnum| null $navigationGroup = 'Arsip Dokumen';
 
     protected static ?string $recordTitleAttribute = 'JenisDokumen';
 

@@ -9,6 +9,7 @@ use App\Filament\Resources\KategoriLayanans\Schemas\KategoriLayananForm;
 use App\Filament\Resources\KategoriLayanans\Tables\KategoriLayanansTable;
 use App\Models\KategoriLayanan;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,7 @@ class KategoriLayananResource extends Resource
     protected static ?string $model = KategoriLayanan::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string |UnitEnum| null $navigationGroup = 'Documentations';
 
     protected static ?string $recordTitleAttribute = 'KategoriLayanan';
 

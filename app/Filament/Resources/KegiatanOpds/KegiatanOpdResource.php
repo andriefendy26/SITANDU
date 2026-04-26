@@ -9,6 +9,7 @@ use App\Filament\Resources\KegiatanOpds\Schemas\KegiatanOpdForm;
 use App\Filament\Resources\KegiatanOpds\Tables\KegiatanOpdsTable;
 use App\Models\KegiatanOpd;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,7 +20,7 @@ class KegiatanOpdResource extends Resource
     protected static ?string $model = KegiatanOpd::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static string |UnitEnum| null $navigationGroup = 'Documentations';
     protected static ?string $recordTitleAttribute = 'KegiatanOpd';
 
     public static function form(Schema $schema): Schema

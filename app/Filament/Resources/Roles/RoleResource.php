@@ -29,6 +29,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Override;
+use UnitEnum;
 
 class RoleResource extends Resource
 {

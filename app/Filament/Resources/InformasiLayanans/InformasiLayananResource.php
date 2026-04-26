@@ -9,6 +9,7 @@ use App\Filament\Resources\InformasiLayanans\Schemas\InformasiLayananForm;
 use App\Filament\Resources\InformasiLayanans\Tables\InformasiLayanansTable;
 use App\Models\InformasiLayanan;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,7 @@ class InformasiLayananResource extends Resource
     protected static ?string $model = InformasiLayanan::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string |UnitEnum| null $navigationGroup = 'Documentations';
 
     protected static ?string $recordTitleAttribute = 'InformasiLayanan';
 

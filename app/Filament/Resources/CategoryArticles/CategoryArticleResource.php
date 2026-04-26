@@ -11,6 +11,7 @@ use App\Filament\Resources\CategoryArticles\Schemas\CategoryArticleInfolist;
 use App\Filament\Resources\CategoryArticles\Tables\CategoryArticlesTable;
 use App\Models\CategoryArticle;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -21,6 +22,7 @@ class CategoryArticleResource extends Resource
     protected static ?string $model = CategoryArticle::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string |UnitEnum| null $navigationGroup = 'Article';
 
     protected static ?string $recordTitleAttribute = 'CategoryArticle';
 

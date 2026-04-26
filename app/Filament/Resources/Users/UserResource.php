@@ -7,6 +7,7 @@ use App\Filament\Resources\Users\Pages\EditUser;
 use App\Filament\Resources\Users\Pages\ListUsers;
 use App\Filament\Resources\Users\Schemas\UserForm;
 use App\Filament\Resources\Users\Tables\UsersTable;
+use UnitEnum;
 use BackedEnum;
 use App\Models\User;
 use Filament\Resources\Resource;
@@ -20,6 +21,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string |UnitEnum| null $navigationGroup = 'Users Settings';
 
     protected static ?string $recordTitleAttribute = 'name';
 

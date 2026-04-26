@@ -9,6 +9,7 @@ use App\Filament\Resources\Dokumens\Schemas\DokumenForm;
 use App\Filament\Resources\Dokumens\Tables\DokumensTable;
 use App\Models\Dokumen;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,7 @@ class DokumenResource extends Resource
     protected static ?string $model = Dokumen::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string |UnitEnum| null $navigationGroup = 'Arsip Dokumen';
 
     protected static ?string $recordTitleAttribute = 'Dokumen';
 
