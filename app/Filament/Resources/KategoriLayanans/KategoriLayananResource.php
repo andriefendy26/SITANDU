@@ -20,7 +20,7 @@ class KategoriLayananResource extends Resource
     protected static ?string $model = KategoriLayanan::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string |UnitEnum| null $navigationGroup = 'Documentations';
+     protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
 
     protected static ?string $recordTitleAttribute = 'KategoriLayanan';
 

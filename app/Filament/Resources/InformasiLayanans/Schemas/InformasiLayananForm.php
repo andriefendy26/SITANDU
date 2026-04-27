@@ -3,7 +3,9 @@
 namespace App\Filament\Resources\InformasiLayanans\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Schema;
 
 class InformasiLayananForm
@@ -12,12 +14,13 @@ class InformasiLayananForm
     {
         return $schema
             ->components([
-                TextInput::make('id_kategori_layanan')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('title')
+                Select::make('id_kategori_layanan')->relationship('kategori', 'name')
                     ->required(),
-                Textarea::make('content')
+                TextInput::make('title')
+                    ->label('Judul Informasi Layanan')
+                    ->required(),
+                RichEditor::make('content')
+                    ->label('Deskripsi Informasi Layanan')
                     ->required()
                     ->columnSpanFull(),
             ]);

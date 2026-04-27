@@ -20,7 +20,7 @@ class InformasiLayananResource extends Resource
     protected static ?string $model = InformasiLayanan::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string |UnitEnum| null $navigationGroup = 'Documentations';
+    protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
 
     protected static ?string $recordTitleAttribute = 'InformasiLayanan';
 

@@ -9,8 +9,9 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Openplain\FilamentShadcnTheme\Color;
-use Filament\Support\Colors\Color as FilamentColor;
+// use Openplain\FilamentShadcnTheme\Color;
+// use Filament\Support\Colors\Color as FilamentColor;
+use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -20,6 +21,11 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+
+use Caresome\FilamentAuthDesigner\AuthDesignerPlugin;
+use Caresome\FilamentNeobrutalism\NeobrutalismeTheme;
+use Caresome\FilamentAuthDesigner\Data\AuthPageConfig;
+use Caresome\FilamentAuthDesigner\Enums\MediaPosition;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -32,10 +38,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::adaptive(
-                    lightColor: FilamentColor::Blue,
-                    darkColor: FilamentColor::Teal
-                ),
+                'primary' => Color::Green,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
@@ -45,11 +48,17 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
-                FilamentInfoWidget::class,
             ])
             ->plugins([
                 FilamentShieldPlugin::make()
                     ->navigationGroup('Users Settings'),
+                NeobrutalismeTheme::make(),
+                // AuthDesignerPlugin::make()
+                // ->login(fn (AuthPageConfig $config) => $config
+                //     ->media(asset('assets/background.jpg'))
+                //     ->mediaPosition(MediaPosition::Cover)
+                //     ->blur(8)
+                // )
             ])
             ->middleware([
                 EncryptCookies::class,
