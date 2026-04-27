@@ -14,7 +14,16 @@ class InformasiLayananForm
     {
         return $schema
             ->components([
-                Select::make('id_kategori_layanan')->relationship('kategori', 'name')
+                Select::make('id_kategori_layanan')
+                    ->relationship('kategori', 'name')
+                    ->label('Kategori Layanan')
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label('Nama Kategori Layanan')
+                            ->required(),
+                    ])
+                    ->searchable()
+                    ->preload()
                     ->required(),
                 TextInput::make('title')
                     ->label('Judul Informasi Layanan')

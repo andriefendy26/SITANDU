@@ -4,6 +4,7 @@ namespace App\Filament\Resources\InformasiLayanans\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -14,10 +15,10 @@ class InformasiLayanansTable
     {
         return $table
             ->columns([
-                TextColumn::make('id_user')
+                TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('id_kategori_layanan')
+                TextColumn::make('kategori.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')
@@ -35,6 +36,7 @@ class InformasiLayanansTable
                 //
             ])
             ->recordActions([
+                DeleteAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

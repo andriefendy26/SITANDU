@@ -4,6 +4,8 @@ namespace App\Filament\Resources\KegiatanOpds\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Schema;
 
 class KegiatanOpdForm
@@ -12,12 +14,21 @@ class KegiatanOpdForm
     {
         return $schema
             ->components([
-                TextInput::make('id_kategori_kegiatan_opd')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('title')
+                Select::make('id_kategori_kegiatan_opd')
+                    ->relationship('kategori', 'name')
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->label('Nama Kategori Kegiatan OPD')
+                            ->required(),
+                    ])
+                    ->searchable()
+                    ->preload()
                     ->required(),
-                Textarea::make('content')
+                TextInput::make('title')
+                    ->label('Judul Kegiatan OPD')
+                    ->required(),
+                RichEditor::make('content')
+                    ->label('Kegiatan OPD')
                     ->required()
                     ->columnSpanFull(),
             ]);
