@@ -10,6 +10,7 @@
       </div>
     </a>
     <ul class="nav-links">
+      <li><a href="/">Beranda</a></li>
       <li><a href="/layanan">Layanan</a></li>
       <li><a href="/kegiatan">Kegiatan</a></li>
       <li><a href="/artikel">Artikel</a></li>
