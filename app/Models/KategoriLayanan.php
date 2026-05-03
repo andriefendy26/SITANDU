@@ -13,6 +13,7 @@ class KategoriLayanan extends Model
 
     protected $fillable = [
         'name',
+        'deskripsi',
     ];
 
     // Relationships

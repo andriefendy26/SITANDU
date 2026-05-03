@@ -6,13 +6,9 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// Route::get('/layanan', function () {
-//     return view('layanan');
-// });
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 // Layanan
 Route::get('/layanan',       [LayananController::class, 'index'])->name('layanan.index');
 Route::get('/layanan/{id}',  [LayananController::class, 'show'])->name('layanan.show');

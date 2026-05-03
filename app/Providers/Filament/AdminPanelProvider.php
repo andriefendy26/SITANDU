@@ -60,6 +60,7 @@ class AdminPanelProvider extends PanelProvider
                 //     ->blur(8)
                 // )
             ])
+            ->resourceCreatePageRedirect('index')
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

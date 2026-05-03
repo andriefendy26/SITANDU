@@ -192,7 +192,8 @@
         opacity: 0.2;
     }
     .kegiatan-img-placeholder svg { width: 100%; height: 100%; fill: var(--primary); }
-    .kegiatan-tag {
+    /* .kegiatan-tag {
+        display: block;
         position: absolute;
         bottom: 12px; left: 12px;
         background: var(--primary);
@@ -203,7 +204,7 @@
         padding: 4px 10px;
         border-radius: 4px;
         text-transform: uppercase;
-    }
+    } */
     .kegiatan-body {
         padding: 1.25rem 1.25rem 1rem;
         flex: 1;

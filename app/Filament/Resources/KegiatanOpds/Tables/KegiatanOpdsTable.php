@@ -5,6 +5,7 @@ namespace App\Filament\Resources\KegiatanOpds\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -14,10 +15,10 @@ class KegiatanOpdsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id_user')
+                TextColumn::make('user.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('id_kategori_kegiatan_opd')
+                TextColumn::make('kategori.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')
@@ -35,6 +36,7 @@ class KegiatanOpdsTable
                 //
             ])
             ->recordActions([
+                DeleteAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

@@ -22,13 +22,13 @@
       <h1>Transparansi &amp;<br><em>Pelayanan Publik</em><br>Terbaik</h1>
       <p>Akses informasi layanan, dokumen resmi, kegiatan OPD, dan artikel terkini secara mudah, cepat, dan terpercaya dalam satu portal terintegrasi.</p>
       <div class="hero-actions">
-        <a href="#layanan" class="btn-primary">
+        <a href="/layanan" class="btn-primary">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 000 4h6a2 2 0 000-4M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           Lihat Layanan
         </a>
-        <a href="#dokumen" class="btn-outline">
+        <a href="/artikel" class="btn-outline">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Unduh Dokumen
+          Lihat Artikel
         </a>
       </div>
     </div>
@@ -69,19 +69,19 @@
 <div class="stats">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-number">24+</div>
+      <div class="stat-number">{{$stats['layanan']}}</div>
       <div class="stat-label">Jenis Layanan</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">180+</div>
+      <div class="stat-number">{{$stats['dokumen']}}</div>
       <div class="stat-label">Dokumen Tersedia</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">60+</div>
+      <div class="stat-number">{{$stats['kegiatan']}}</div>
       <div class="stat-label">Kegiatan OPD</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">120+</div>
+      <div class="stat-number">{{$stats['artikel']}}</div>
       <div class="stat-label">Artikel Diterbitkan</div>
     </div>
   </div>
@@ -114,57 +114,19 @@
         <h2 class="section-title">Layanan Publik<br>yang Kami Sediakan</h2>
         <p class="section-desc">Temukan berbagai informasi layanan yang disediakan oleh OPD untuk masyarakat.</p>
       </div>
-      <a href="#" class="view-all">Lihat Semua →</a>
+      <a href="/layanan" class="view-all">Lihat Semua →</a>
     </div>
     <div class="layanan-grid">
-      <div class="layanan-card">
-        <div class="layanan-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 14l6-6M9 8h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      @foreach($layanan as $item)
+        <div class="layanan-card">
+            <div class="layanan-icon">...</div>
+            <h3>{{ $item->name }}</h3>
+            <p>{{ $item->deskripsi }}</p>
+            <a href="{{ route('layanan.index', ['kategori' => $item->id]) }}" class="layanan-link">
+                Selengkapnya →
+            </a>
         </div>
-        <h3>Perizinan Usaha</h3>
-        <p>Panduan dan prosedur pengurusan izin usaha mikro, kecil, dan menengah di wilayah daerah.</p>
-        <a href="#" class="layanan-link">Selengkapnya →</a>
-      </div>
-      <div class="layanan-card">
-        <div class="layanan-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        </div>
-        <h3>Administrasi Kependudukan</h3>
-        <p>Layanan pengurusan KTP, KK, akta kelahiran, dan dokumen kependudukan lainnya.</p>
-        <a href="#" class="layanan-link">Selengkapnya →</a>
-      </div>
-      <div class="layanan-card">
-        <div class="layanan-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-        </div>
-        <h3>Pendidikan &amp; Beasiswa</h3>
-        <p>Informasi program bantuan pendidikan, beasiswa daerah, dan fasilitas sekolah.</p>
-        <a href="#" class="layanan-link">Selengkapnya →</a>
-      </div>
-      <div class="layanan-card">
-        <div class="layanan-icon">
-          <svg viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-        </div>
-        <h3>Kesehatan Masyarakat</h3>
-        <p>Jadwal posyandu, imunisasi, BPJS, dan program kesehatan masyarakat lainnya.</p>
-        <a href="#" class="layanan-link">Selengkapnya →</a>
-      </div>
-      <div class="layanan-card">
-        <div class="layanan-icon">
-          <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        </div>
-        <h3>Infrastruktur &amp; Tata Ruang</h3>
-        <p>Informasi tentang pembangunan infrastruktur, tata ruang kota, dan perencanaan wilayah.</p>
-        <a href="#" class="layanan-link">Selengkapnya →</a>
-      </div>
-      <div class="layanan-card">
-        <div class="layanan-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        </div>
-        <h3>Ketenagakerjaan</h3>
-        <p>Informasi lowongan kerja, pelatihan, dan program pemberdayaan tenaga kerja daerah.</p>
-        <a href="#" class="layanan-link">Selengkapnya →</a>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
@@ -177,10 +139,39 @@
         <div class="section-label">Kegiatan OPD</div>
         <h2 class="section-title">Program &amp; Kegiatan<br>Terkini Dinas</h2>
       </div>
-      <a href="#" class="view-all">Lihat Semua →</a>
+      <a href="/kegiatan" class="view-all">Lihat Semua →</a>
     </div>
     <div class="kegiatan-grid">
-      <div class="kegiatan-card">
+      @if($kegiatan->isEmpty())
+        <p style="grid-column:1/-1;text-align:center;color:rgba(0,0,0,0.6);">Belum ada kegiatan yang dipublikasikan.</p>
+      @endif
+      @foreach ($kegiatan as $i => $item)
+        <div class="kegiatan-card">
+          
+            {{-- Thumbnail --}}
+            <div class="artikel-thumb {{ $item->image ? '' : ['t1','t2','t3'][$i % 3] }}"
+                style="{{ $item->image ? 'padding:0; background:none;' : '' }}">
+              @if($item->image)
+                <img src="{{ asset('storage/' . $item->image) }}"
+                    alt="{{ $item->title }}"
+                    style="width:100%; height:100%; object-fit:cover; display:block;">
+              @else
+                <p>Tidak ada thumbnail</p>
+              @endif
+            </div>
+            {{-- <div class="kegiatan-img">
+                <div class="kegiatan-img-bg type-{{ ($loop->iteration % 3) + 1 }}"></div>
+                <div class="kegiatan-tag">{{ $item->kategori->name }}</div>
+                <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div> --}}
+            <div class="kegiatan-body">
+                <div class="kegiatan-meta">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }} · {{ $item->lokasi }}</div>
+                <h3>{{ $item->title }}</h3>
+                <p>{{ strip_tags($item->content) }}</p>
+            </div>
+        </div>
+      @endforeach
+      {{-- <div class="kegiatan-card">
         <div class="kegiatan-img">
           <div class="kegiatan-img-bg type-1"></div>
           <div class="kegiatan-tag">Sosialisasi</div>
@@ -215,7 +206,7 @@
           <h3>Rapat Koordinasi Lintas Sektor Semester I</h3>
           <p>Koordinasi program antar dinas untuk sinergi capaian target.</p>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>
@@ -228,51 +219,46 @@
         <div class="section-label">Artikel &amp; Berita</div>
         <h2 class="section-title">Informasi &amp; Kabar<br>Terbaru Daerah</h2>
       </div>
-      <a href="#" class="view-all">Lihat Semua →</a>
+      <a href="/artikel" class="view-all">Lihat Semua →</a>
     </div>
     <div class="artikel-grid">
+      @if($artikels->isEmpty())
+        <p style="grid-column:1/-1;text-align:center;color:rgba(0,0,0,0.6);">Belum ada artikel yang dipublikasikan.</p>
+      @endif
+
+      @foreach($artikels as $i => $item)
       <div class="artikel-card">
-        <div class="artikel-thumb t1">📋</div>
+
+        {{-- Thumbnail --}}
+        <div class="artikel-thumb {{ $item->image ? '' : ['t1','t2','t3'][$i % 3] }}"
+            style="{{ $item->image ? 'padding:0; background:none;' : '' }}">
+          @if($item->image)
+            <img src="{{ asset('storage/' . $item->image) }}"
+                alt="{{ $item->title }}"
+                style="width:100%; height:100%; object-fit:cover; display:block;">
+          @else
+            <p>Tidak ada thumbnail</p>
+          @endif
+        </div>
+
         <div class="artikel-body">
-          <span class="artikel-cat">Kebijakan</span>
-          <h3>Peraturan Baru Pengurusan Izin Lingkungan Hidup Tahun 2025</h3>
-          <p>Pemerintah daerah menerbitkan peraturan baru yang menyederhanakan prosedur pengurusan izin lingkungan...</p>
+          <span class="artikel-cat">{{ $item->category->name }}</span>
+          <h3>{{ $item->title }}</h3>
+          <p>{{ Illuminate\Support\Str::limit(strip_tags($item->content), 150) }}...</p>
           <div class="artikel-footer">
-            <span>20 Apr 2025</span>
-            <span>oleh Admin OPD</span>
+            <span>{{ $item->created_at->format('d M Y') }}</span>
+            <span>oleh {{ $item->user->name }}</span>
           </div>
         </div>
+
       </div>
-      <div class="artikel-card">
-        <div class="artikel-thumb t2">🏗️</div>
-        <div class="artikel-body">
-          <span class="artikel-cat">Infrastruktur</span>
-          <h3>Pembangunan Jalan Lingkar Utara Ditargetkan Selesai 2025</h3>
-          <p>Proyek strategis pembangunan jalan lingkar utara senilai ratusan miliar terus dikebut penyelesaiannya...</p>
-          <div class="artikel-footer">
-            <span>18 Apr 2025</span>
-            <span>oleh Tim Redaksi</span>
-          </div>
-        </div>
-      </div>
-      <div class="artikel-card">
-        <div class="artikel-thumb t3">🌿</div>
-        <div class="artikel-body">
-          <span class="artikel-cat">Lingkungan</span>
-          <h3>Program Penghijauan Kota Berhasil Tanam 10.000 Pohon</h3>
-          <p>Gerakan tanam pohon yang melibatkan seluruh elemen masyarakat berhasil mencapai target ambisius...</p>
-          <div class="artikel-footer">
-            <span>15 Apr 2025</span>
-            <span>oleh Humas OPD</span>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
 
 <!-- DOKUMEN -->
-<section class="dokumen" id="dokumen">
+{{-- <section class="dokumen" id="dokumen">
   <div class="container">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem; margin-bottom:0;">
       <div>
@@ -363,7 +349,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 
 <!-- CTA -->
 <section class="cta">
@@ -410,7 +396,6 @@
     card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s';
     observer.observe(card);
   });
-</script>
-
+</script> 
 </body>
 </html>

@@ -16,6 +16,7 @@ class KegiatanOpd extends Model
         'id_kategori_kegiatan_opd',
         'title',
         'content',
+        'image',
     ];
 
     // Relationships

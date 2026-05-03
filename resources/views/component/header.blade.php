@@ -1,4 +1,4 @@
-<header>
+<header class="nav">
   <div class="nav-inner">
     <a href="#" class="nav-brand">
       <div class="nav-logo">

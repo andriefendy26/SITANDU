@@ -6,6 +6,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class KegiatanOpdForm
@@ -23,6 +24,12 @@ class KegiatanOpdForm
                     ])
                     ->searchable()
                     ->preload()
+                    ->required(),
+                FileUpload::make('image')
+                    ->label('Thumbnail Artikel')
+                    ->disk('public')
+                    ->directory('kegiatan')
+                    ->image()
                     ->required(),
                 TextInput::make('title')
                     ->label('Judul Kegiatan OPD')

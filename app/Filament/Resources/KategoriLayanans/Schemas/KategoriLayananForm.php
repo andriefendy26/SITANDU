@@ -13,6 +13,8 @@ class KategoriLayananForm
             ->components([
                 TextInput::make('name')
                     ->required(),
+                TextInput::make('deskripsi')
+                    ->required(),
             ]);
     }
 }
