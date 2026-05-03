@@ -13,6 +13,7 @@
 
 @section('content')
 <!-- HERO -->
+
 <section class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-grid"></div>
@@ -88,7 +89,7 @@
 </div>
 
 <!-- SEARCH BAR -->
-<div class="search-bar">
+{{-- <div class="search-bar">
   <div class="search-inner">
     <div class="search-input-wrap">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -103,7 +104,7 @@
     </select>
     <button class="search-btn">Cari Sekarang</button>
   </div>
-</div>
+</div> --}}
 
 <!-- LAYANAN -->
 <section class="layanan" id="layanan">

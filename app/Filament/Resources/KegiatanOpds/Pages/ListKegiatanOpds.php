@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\KegiatanOpds\Pages;
 
 use App\Filament\Resources\KegiatanOpds\KegiatanOpdResource;
+use App\Filament\Resources\KegiatanOpds\Widgets\KegiatanOpdsStats;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
@@ -14,6 +15,13 @@ class ListKegiatanOpds extends ListRecords
     {
         return [
             CreateAction::make(),
+        ];
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            KegiatanOpdsStats::class,
         ];
     }
 }

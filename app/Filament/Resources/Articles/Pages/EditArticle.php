@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Articles\Pages;
 
 use App\Filament\Resources\Articles\ArticleResource;
+use App\Filament\Resources\Articles\Widgets\ArticlesChart;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 

@@ -7,6 +7,7 @@ use App\Filament\Resources\Articles\Pages\EditArticle;
 use App\Filament\Resources\Articles\Pages\ListArticles;
 use App\Filament\Resources\Articles\Schemas\ArticleForm;
 use App\Filament\Resources\Articles\Tables\ArticlesTable;
+
 use App\Models\Article;
 use BackedEnum;
 use UnitEnum;
@@ -40,6 +41,7 @@ class ArticleResource extends Resource
             //
         ];
     }
+
 
     public static function getPages(): array
     {

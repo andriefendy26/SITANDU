@@ -87,7 +87,7 @@
         background: var(--white);
         border-bottom: 1px solid var(--border);
         padding: 1rem 2rem;
-        position: sticky;
+        /* position: sticky; */
         top: 68px;
         z-index: 99;
         box-shadow: var(--shadow-sm);
