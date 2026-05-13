@@ -5,8 +5,8 @@
         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
       <div class="nav-title">
-        <span>Portal OPD</span>
-        <span>Pemerintah Daerah</span>
+        <span>SITANDU</span>
+        <span>Sistem Informasi Pelayanan Posyandu Terpadu</span>
       </div>
     </a>
     <ul class="nav-links">

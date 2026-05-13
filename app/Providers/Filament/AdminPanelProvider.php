@@ -52,7 +52,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentShieldPlugin::make()
                     ->navigationGroup('Users Settings'),
-                NeobrutalismeTheme::make(),
+                // NeobrutalismeTheme::make(),
                 // AuthDesignerPlugin::make()
                 // ->login(fn (AuthPageConfig $config) => $config
                 //     ->media(asset('assets/background.jpg'))

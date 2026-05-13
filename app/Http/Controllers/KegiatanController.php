@@ -34,10 +34,10 @@ class KegiatanController extends Controller
     public function show($slug)
     {
         $kegiatan = KegiatanOpd::with(['user', 'kategori'])
-            ->where('slug', $slug)
+            // ->where('slug', $slug)
             ->orWhere('id', $slug)
             ->firstOrFail();
- 
+
         return view('kegiatan-detail', compact('kegiatan'));
     }
 }
