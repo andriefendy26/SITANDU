@@ -75,14 +75,13 @@
         .nav-logo {
             width: 42px;
             height: 42px;
-            background: var(--primary);
+            /* background: var(--primary); */
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .nav-logo svg { width: 24px; height: 24px; fill: var(--white); }
 
         .nav-title {
             display: flex;
@@ -275,9 +274,7 @@
 
         /* Hero visual */
         .hero-visual {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+     
         }
 
         .hero-card {

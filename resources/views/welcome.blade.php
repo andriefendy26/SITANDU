@@ -33,7 +33,7 @@
         </a>
       </div>
     </div>
-    <div class="hero-visual">
+    {{-- <div class="hero-visual">
       <div class="hero-card">
         <div class="hero-card-icon">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -62,6 +62,9 @@
         <h4>Artikel &amp; Berita</h4>
         <p>Informasi terkini seputar kebijakan &amp; program daerah</p>
       </div>
+    </div> --}}
+    <div class="hero-visual">
+      <img src="{{ asset('assets/Hero/Image.png') }}" style="width: 100%; height: auto;" alt="Ilustrasi Layanan Publik" class="w-24 h-24">
     </div>
   </div>
 </section>
