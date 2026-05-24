@@ -64,7 +64,7 @@
       </div>
     </div> --}}
     <div class="hero-visual">
-      <img src="{{ asset('assets/Hero/Image.png') }}" style="width: 100%; height: auto;" alt="Ilustrasi Layanan Publik" class="w-24 h-24">
+      <img src="{{ asset('assets/Hero/Image.png') }}" style="width: 400px; height: auto;" alt="Ilustrasi Layanan Publik" class="w-24 h-24">
     </div>
   </div>
 </section>

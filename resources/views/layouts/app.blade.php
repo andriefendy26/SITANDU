@@ -273,8 +273,80 @@
         }
 
         /* Hero visual */
+     /* Hero visual */
         .hero-visual {
-     
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* padding: 2rem; */
+        }
+
+        /* Lingkaran dekorasi di belakang gambar */
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(var(--primary-rgb, 37, 99, 235), 0.08) 0%, rgba(var(--primary-rgb, 37, 99, 235), 0.03) 100%);
+            border: 2px dashed rgba(var(--primary-rgb, 37, 99, 235), 0.15);
+            animation: rotateSlow 20s linear infinite;
+            z-index: 0;
+        }
+
+        /* Lingkaran kedua lebih kecil */
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(var(--primary-rgb, 37, 99, 235), 0.05) 0%, transparent 100%);
+            z-index: 0;
+        }
+
+        /* Gambar utama */
+        .hero-visual img {
+            position: relative;
+            z-index: 1;
+            width: 380px;
+            height: auto;
+            border-radius: 1.5rem;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.08));
+            animation: floatUpDown 4s ease-in-out infinite;
+            transition: filter 0.3s ease;
+        }
+
+        .hero-visual img:hover {
+            filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.18)) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Animasi mengambang */
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0px); }
+            50%       { transform: translateY(-14px); }
+        }
+
+        /* Animasi rotasi lambat pada ring */
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .hero-visual img {
+                width: 260px;
+            }
+            .hero-visual::before {
+                width: 280px;
+                height: 280px;
+            }
+            .hero-visual::after {
+                width: 200px;
+                height: 200px;
+            }
         }
 
         .hero-card {
