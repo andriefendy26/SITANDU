@@ -19,7 +19,7 @@
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <div> 
-      <div class="hero-badge"><span></span> Portal Resmi Pemerintah Daerah</div>
+      <div class="hero-badge"><span></span> Portal Resmi Sekertariat Posyandu</div>
       <h1>Transparansi &amp;<br><em>Pelayanan Publik</em><br>Terbaik</h1>
       <p>Akses informasi layanan, dokumen resmi, kegiatan OPD, dan artikel terkini secara mudah, cepat, dan terpercaya dalam satu portal terintegrasi.</p>
       <div class="hero-actions">

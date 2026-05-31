@@ -5,12 +5,11 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:38px;height:38px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="rgba(255,255,255,0.8)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
+          <img src="{{ asset('assets/logo/Logokab.png') }}" alt="SITANDU Logo" class="nav-logo">
+          <img src="{{ asset('assets/logo/Logopos.png') }}" alt="SITANDU Logo" class="nav-logo">
           <div>
-            <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:rgba(255,255,255,0.9);">Portal OPD</div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;">Pemerintah Daerah</div>
+            <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:rgba(255,255,255,0.9);">Sistem Informasi Pelayanan Posyandu</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;">Portal Resmi Sekertariat Posyandu</div>
           </div>
         </div>
         <p>Portal resmi sistem informasi OPD yang menyediakan akses terbuka kepada masyarakat untuk informasi layanan publik, dokumen, dan kegiatan dinas.</p>
@@ -47,7 +46,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2025 Portal OPD Pemerintah Daerah. Hak cipta dilindungi.</span>
+      <span>&copy; 2026 Portal Resmi Sekertariat Posyandu. Hak cipta dilindungi.</span>
       <span>Dibangun dengan <a href="#">Laravel &amp; Filament</a></span>
     </div>
   </div>

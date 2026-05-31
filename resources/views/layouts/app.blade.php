@@ -168,7 +168,7 @@
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 2rem;
+            padding: 1rem 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
