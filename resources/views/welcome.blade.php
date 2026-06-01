@@ -63,8 +63,52 @@
         <p>Informasi terkini seputar kebijakan &amp; program daerah</p>
       </div>
     </div> --}}
+
+    {{-- Versi 1 --}}
+    {{-- <div class="hero-visual">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <img src="{{ asset('assets/Hero/Image.png') }}" style="width: 400px; height: auto;" alt="Ilustrasi Layanan Publik" class="w-24 h-24">
+        <div style="text-align: center; color: white;">
+          <p style="font-weight: 700; font-size: 1rem; margin: 0; letter-spacing: 0.5px;">NY. MAYLENTY WEMPI, SE</p>
+          <p style="font-size: 0.85rem; margin: 4px 0 0 0; opacity: 0.85;">KETUA TP.POSYANDU KAB.MALINAU</p>
+        </div>
+      </div>
+    </div> --}}
+
+    {{-- Versi 2 --}}
     <div class="hero-visual">
-      <img src="{{ asset('assets/Hero/Image.png') }}" style="width: 400px; height: auto;" alt="Ilustrasi Layanan Publik" class="w-24 h-24">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="{{ asset('assets/Hero/Image.png') }}" 
+            style="width: 350px; height: auto;" 
+            alt="Ilustrasi Layanan Publik">
+        <div style="
+          width: 100%;
+          max-width: 320px;
+          background: rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 0 0 14px 14px;
+          padding: 14px 20px 16px;
+          text-align: center;
+        ">
+          <div style="width:40px; height:3px; background:#60c8f0; border-radius:99px; margin:0 auto 12px;"></div>
+          <p style="font-size:15px; font-weight:700; color:#fff; letter-spacing:0.5px; margin:0 0 8px; text-transform:uppercase;">
+            NY. MAYLENTY WEMPI, SE
+          </p>
+          <span style="
+            display: inline-block;
+            background: rgba(96,200,240,0.18);
+            border: 1px solid rgba(96,200,240,0.35);
+            border-radius: 99px;
+            padding: 4px 14px;
+            font-size: 11px;
+            color: #a8e2f8;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+          ">
+            KETUA TP.POSYANDU KAB.MALINAU
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
