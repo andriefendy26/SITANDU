@@ -12,7 +12,7 @@
             <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;">Portal Resmi Sekertariat Posyandu</div>
           </div>
         </div>
-        <p>Portal resmi sistem informasi OPD yang menyediakan akses terbuka kepada masyarakat untuk informasi layanan publik, dokumen, dan kegiatan dinas.</p>
+        <p>Portal resmi sistem informasi sistem SITANDU yang menyediakan akses secara terbuka kepada masyarakat untuk informasi layanan publik, dokumen dan kegiatan dinas serta podyandu setiap desa.</p>
       </div>
       <div class="footer-col">
         <h4>Layanan</h4>
