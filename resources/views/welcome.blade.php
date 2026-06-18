@@ -405,8 +405,11 @@
     <h2>Butuh Bantuan Layanan?</h2>
     <p>Tim kami siap membantu Anda menemukan informasi yang dibutuhkan. Hubungi kami atau kunjungi kantor dinas terdekat.</p>
     <div class="cta-buttons">
-      <a href="https://wa.me/6282255187877" class="btn-primary">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      <a href="mailto:posyandukabmalinau@gmail.com?subject=Pertanyaan%20Website&body=Halo,%20saya%20ingin%20bertanya%20tentang..." class="btn-primary">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="#FFFFFF" stroke-width="2"/>
+            <path d="M4 7L12 13L20 7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         Hubungi Kami
       </a>
       <a href="/admin/login" class="btn-outline">

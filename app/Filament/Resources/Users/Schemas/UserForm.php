@@ -13,16 +13,19 @@ class UserForm
     {
         return $schema
             ->components([
-                //
                 TextInput::make('name')
                     ->label('Name')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('email')
                     ->label('Email')
-                    ->required()
+                    // ->required()
                     ->maxLength(255)
                     ->email(),
+                TextInput::make('username')
+                    ->label('Username')
+                    ->required()
+                    ->maxLength(255),
                 TextInput::make('password')
                     ->label('Password')
                     ->required()
@@ -33,7 +36,6 @@ class UserForm
                     ->multiple()
                     ->preload()
                     ->searchable(),
-                    
             ]);
     }
 }

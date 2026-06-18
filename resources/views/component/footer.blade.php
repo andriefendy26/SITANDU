@@ -17,37 +17,28 @@
       <div class="footer-col">
         <h4>Layanan</h4>
         <ul>
-          <li><a href="#">Perizinan Usaha</a></li>
-          <li><a href="#">Administrasi Kependudukan</a></li>
-          <li><a href="#">Pendidikan &amp; Beasiswa</a></li>
-          <li><a href="#">Kesehatan</a></li>
-          <li><a href="#">Infrastruktur</a></li>
+          <li><a href="/layanan">Menu Layanan</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Informasi</h4>
         <ul>
-          <li><a href="#">Tentang OPD</a></li>
-          <li><a href="#">Struktur Organisasi</a></li>
-          <li><a href="#">Visi &amp; Misi</a></li>
-          <li><a href="#">Kontak</a></li>
-          <li><a href="#">Peta Situs</a></li>
+          <li><a href="/kegiatan">Kegiatan OPD</a></li>
+          <li><a href="/artikel">Artikel</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Tautan Cepat</h4>
         <ul>
-          <li><a href="#">Kegiatan OPD</a></li>
-          <li><a href="#">Artikel &amp; Berita</a></li>
-          <li><a href="#">Dokumen Resmi</a></li>
-          <li><a href="#">Pengaduan</a></li>
-          <li><a href="/admin">Login Admin</a></li>
+          <li><a href="/kegiatan">Kegiatan OPD</a></li>
+          <li><a href="/dokumen">Dokumen</a></li>
+          <li><a href="mailto:posyandukabmalinau@gmail.com?subject=Pertanyaan%20Website&body=Halo,%20saya%20ingin%20bertanya%20tentang...">Kontak OPD</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Portal Resmi Sekertariat Posyandu. Hak cipta dilindungi.</span>
-      <span>Dibangun dengan <a href="#">Laravel &amp; Filament</a></span>
+      {{-- <span>Dibangun dengan <a href="#">Laravel &amp; Filament</a></span> --}}
     </div>
   </div>
 </footer>
