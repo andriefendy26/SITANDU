@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
+        'id_unit',
     ];
 
     /**
@@ -39,4 +40,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function units()
+    {
+        return $this->belongsTo(Unit::class, 'id_unit');
+    }
 }

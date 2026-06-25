@@ -22,6 +22,6 @@ Route::get('/artikel',        [ArtikelController::class, 'index'])->name('artike
 Route::get('/artikel/{slug}', [ArtikelController::class, 'show'])->name('artikel.show');
  
 // ── Dokumen ───────────────────────────────────
-Route::get('/dokumen',                   [DokumenController::class, 'index'])->name('dokumen.index');
-Route::get('/dokumen/{id}/download',     [DokumenController::class, 'download'])->name('dokumen.download');
+// Route::get('/dokumen',                   [DokumenController::class, 'index'])->name('dokumen.index');
+// Route::get('/dokumen/{id}/download',     [DokumenController::class, 'download'])->name('dokumen.download');
  

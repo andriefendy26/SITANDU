@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class DokumenResource extends Resource
 {
@@ -39,6 +40,18 @@ class DokumenResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
+        if (! auth()->user()->hasRole('super_admin')) {
+            $query->where('id_user', auth()->id());
+        }
+
+        return $query;
     }
 
     public static function getPages(): array

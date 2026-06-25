@@ -20,7 +20,7 @@ class KategoriKegiatanOpdResource extends Resource
     protected static ?string $model = KategoriKegiatanOpd::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string |UnitEnum| null $navigationGroup = 'Kegiatan';
+    protected static string |UnitEnum| null $navigationGroup = 'Kegiatan OPD';
 
     protected static ?string $recordTitleAttribute = 'KategoriKegiatanOpd';
 

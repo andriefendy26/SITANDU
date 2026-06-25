@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\KegiatanOpds\Schemas;
+namespace App\Filament\Resources\KegiatanPosyandus\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -12,17 +12,17 @@ use Filament\Forms\Components\Repeater;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
-class KegiatanOpdForm
+class KegiatanPosyanduForm
 {
-    public static function configure(Schema $schema): Schema
+   public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                Select::make('id_kategori_kegiatan_opd')
+                Select::make('id_kategori_kegiatan_posyandu')
                     ->relationship('kategori', 'name')
                     ->createOptionForm([
                         TextInput::make('name')
-                            ->label('Nama Kategori Kegiatan OPD')
+                            ->label('Nama Kategori Kegiatan Posyandu')
                             ->required(),
                     ])
                     ->searchable()
@@ -35,13 +35,14 @@ class KegiatanOpdForm
                     ->image()
                     ->required(),
                 TextInput::make('title')
-                    ->label('Judul Kegiatan OPD')
+                    ->label('Judul Kegiatan Posyandu')
                     ->required(),
                 RichEditor::make('content')
-                    ->label('Kegiatan OPD')
+                    ->label('Kegiatan Posyandu')
                     ->required()
                     ->columnSpanFull(),
-              Section::make('Dokumentasi / Foto')
+                
+            Section::make('Dokumentasi / Foto')
                 ->description('Tambahkan foto dokumentasi kegiatan (maksimal 10 foto)')
                 ->schema([
                     Repeater::make('dokumentasi')

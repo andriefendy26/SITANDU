@@ -39,6 +39,7 @@ class JenisDokumenResource extends Resource
     {
         return [
             //
+            RelationManagers\DokumenRelationManager::class,
         ];
     }
 

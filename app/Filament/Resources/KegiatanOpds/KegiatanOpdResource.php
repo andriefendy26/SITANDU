@@ -20,7 +20,7 @@ class KegiatanOpdResource extends Resource
     protected static ?string $model = KegiatanOpd::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string |UnitEnum| null $navigationGroup = 'Kegiatan';
+    protected static string |UnitEnum| null $navigationGroup = 'Kegiatan OPD';
     protected static ?string $recordTitleAttribute = 'KegiatanOpd';
 
     public static function form(Schema $schema): Schema

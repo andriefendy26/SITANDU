@@ -29,4 +29,9 @@ class KegiatanOpd extends Model
     {
         return $this->belongsTo(KategoriKegiatanOpd::class, 'id_kategori_kegiatan_opd');
     }
+
+    public function dokumentasi()
+    {
+        return $this->hasMany(DokumentasiKegiatanOpd::class, 'id_kegiatan_opd');
+    }
 }
