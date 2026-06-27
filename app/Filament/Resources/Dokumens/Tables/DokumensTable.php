@@ -15,6 +15,10 @@ class DokumensTable
     {
         return $table
             ->columns([
+                TextColumn::make('User.name')
+                    ->badge()
+                    ->color('info')
+                    ->sortable(),
                 TextColumn::make('JenisDokumen.title')
                     ->badge()
                     ->color('info')

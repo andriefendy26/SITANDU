@@ -15,15 +15,27 @@ class KegiatanPosyandusTable
     {
         return $table
             ->columns([
-                TextColumn::make('id_user')
+                TextColumn::make('user.name')
+                    ->label('Pengguna')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('id_kategori_kegiatan_posyandu')
+                TextColumn::make('kategori.name')
+                    ->label('Kategori')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')
                     ->searchable(),
-                ImageColumn::make('image'),
+                // TextColumn::make('image')
+                //     ->label('Thumbnail')
+                //     ->searchable(),
+                ImageColumn::make('image')
+                    ->label('Thumbnail')
+                    ->disk('public')
+                    // ->directory('kegiatan')
+                    // ->rounded()
+                    ->height(50)
+                    ->width(50)
+                    ->visibility("public"),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

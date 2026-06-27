@@ -35,6 +35,11 @@ class JenisDokumenResource extends Resource
         return JenisDokumensTable::configure($table);
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Jenis Dokumen';
+    }
+
     public static function getRelations(): array
     {
         return [

@@ -19,6 +19,8 @@ class KategoriKegiatanOpdResource extends Resource
 {
     protected static ?string $model = KategoriKegiatanOpd::class;
 
+    // protected static ?string $modelLabel = 'Kategori';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Kegiatan OPD';
 
@@ -39,6 +41,11 @@ class KategoriKegiatanOpdResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Kategori';
     }
 
     public static function getPages(): array

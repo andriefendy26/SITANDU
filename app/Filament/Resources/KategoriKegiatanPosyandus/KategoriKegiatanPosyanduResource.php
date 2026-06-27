@@ -18,10 +18,8 @@ use Filament\Tables\Table;
 class KategoriKegiatanPosyanduResource extends Resource
 {
     protected static ?string $model = KategoriKegiatanPosyandu::class;
-
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Kegiatan Posyandu';
-
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
@@ -32,6 +30,11 @@ class KategoriKegiatanPosyanduResource extends Resource
     public static function table(Table $table): Table
     {
         return KategoriKegiatanPosyandusTable::configure($table);
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Kategori';
     }
 
     public static function getRelations(): array

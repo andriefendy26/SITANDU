@@ -32,20 +32,27 @@ class UserResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return UsersTable::configure($table);
+        return UsersTable::configure($table)
+                // ->recordUrl(
+                //     fn(User $record) => static::getUrl('view', ['record' => $record])
+                // )
+                ;
     }
 
     public static function getRelations(): array
     {
         return [
             //
+            RelationManagers\DokumenRelationManager::class
         ];
     }
+    
 
     public static function getPages(): array
     {
         return [
             'index' => ListUsers::route('/'),
+            'view' => Pages\ViewUser::route('/{record}'),
             'create' => CreateUser::route('/create'),
             'edit' => EditUser::route('/{record}/edit'),
         ];

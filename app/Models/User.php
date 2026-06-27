@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+// use App\Model\Dokumen;
 
 class User extends Authenticatable
 {
@@ -45,4 +46,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Unit::class, 'id_unit');
     }
+
+    public function dokumen()
+    {
+        return $this->hasMany(Dokumen::class, "id_user");
+    }
+
+    // public function dokumen()
+    // {
+    //     return $this->hasMany(Dokumen::class, 'id_jenis_dokumen');
+    // }
+    
 }

@@ -42,6 +42,11 @@ class DokumenResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Dokumen';
+    }
+
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();

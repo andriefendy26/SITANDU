@@ -10,8 +10,6 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
-// use Openplain\FilamentShadcnTheme\Color;
-// use Filament\Support\Colors\Color as FilamentColor;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
@@ -34,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->topNavigation()
+            // ->topNavigation()
             ->id('admin')
             ->path('admin')
             // ->login()
@@ -54,13 +52,13 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 FilamentShieldPlugin::make()
                     ->navigationGroup('Users Settings'),
-                // NeobrutalismeTheme::make(),
-                // AuthDesignerPlugin::make()
-                // ->login(fn (AuthPageConfig $config) => $config
-                //     ->media(asset('assets/background.jpg'))
-                //     ->mediaPosition(MediaPosition::Cover)
-                //     ->blur(8)
-                // )
+                    // NeobrutalismeTheme::make(),
+                    // AuthDesignerPlugin::make()
+                    // ->login(fn (AuthPageConfig $config) => $config
+                    //     ->media(asset('assets/background.jpg'))
+                    //     ->mediaPosition(MediaPosition::Cover)
+                    //     ->blur(8)
+                    // )
             ])
             ->resourceCreatePageRedirect('index')
             ->middleware([

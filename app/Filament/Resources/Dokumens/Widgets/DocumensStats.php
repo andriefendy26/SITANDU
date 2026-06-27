@@ -13,7 +13,9 @@ class DocumensStats extends StatsOverviewWidget
     {
         return [
             //
-            Stat::make('Total Dokumen', Dokumen::count())
+            Stat::make('Total Dokumen', Dokumen::unless(auth()->user()->hasRole('super_admin'), function ($query) {
+                            $query->where('id_user', auth()->id());
+                        })->count())
                 ->description('Dokumen tersedia')
                 ->descriptionIcon('heroicon-m-document-arrow-down')
                 ->color('success')

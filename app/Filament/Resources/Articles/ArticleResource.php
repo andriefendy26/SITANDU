@@ -21,8 +21,8 @@ class ArticleResource extends Resource
     protected static ?string $model = Article::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
-    protected static string |UnitEnum| null $navigationGroup = 'Article';
-
+    protected static string |UnitEnum| null $navigationGroup = 'Berita';
+    
     protected static ?string $recordTitleAttribute = 'Article';
 
     public static function form(Schema $schema): Schema
@@ -33,6 +33,11 @@ class ArticleResource extends Resource
     public static function table(Table $table): Table
     {
         return ArticlesTable::configure($table);
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Berita';
     }
 
     public static function getRelations(): array

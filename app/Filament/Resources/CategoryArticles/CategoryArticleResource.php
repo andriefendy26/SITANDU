@@ -22,7 +22,7 @@ class CategoryArticleResource extends Resource
     protected static ?string $model = CategoryArticle::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string |UnitEnum| null $navigationGroup = 'Article';
+    protected static string |UnitEnum| null $navigationGroup = 'Berita';
 
     protected static ?string $recordTitleAttribute = 'CategoryArticle';
 
@@ -46,6 +46,11 @@ class CategoryArticleResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Jenis Berita';
     }
 
     public static function getPages(): array

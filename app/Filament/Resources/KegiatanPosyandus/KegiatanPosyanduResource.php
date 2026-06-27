@@ -15,10 +15,13 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use Illuminate\Database\Eloquent\Builder;
+
 class KegiatanPosyanduResource extends Resource
 {
     protected static ?string $model = KegiatanPosyandu::class;
 
+    protected static ?string $modelLabel = 'Kegiatan';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Kegiatan Posyandu';
 
@@ -39,6 +42,23 @@ class KegiatanPosyanduResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
+        if (! auth()->user()->hasRole('super_admin')) {
+            $query->where('id_user', auth()->id());
+        }
+
+        return $query;
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Kegiatan';
     }
 
     public static function getPages(): array

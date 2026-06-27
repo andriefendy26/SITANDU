@@ -19,8 +19,9 @@ class KategoriLayananResource extends Resource
 {
     protected static ?string $model = KategoriLayanan::class;
 
+    // protected static ?string $modelLabel = 'Kategori';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-     protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
+    protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
 
     protected static ?string $recordTitleAttribute = 'KategoriLayanan';
 
@@ -39,6 +40,11 @@ class KategoriLayananResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Kategori';
     }
 
     public static function getPages(): array

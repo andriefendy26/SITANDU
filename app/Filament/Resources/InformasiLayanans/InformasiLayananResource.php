@@ -34,6 +34,11 @@ class InformasiLayananResource extends Resource
         return InformasiLayanansTable::configure($table);
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Informasi';
+    }
+
     public static function getRelations(): array
     {
         return [

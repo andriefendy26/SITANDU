@@ -21,6 +21,4 @@ class KategoriKegiatanPosyandu extends Model
     {
         return $this->hasMany(KegiatanPosyandu::class, 'id_kategori_kegiatan_posyandu');
     }
-
-
 }
