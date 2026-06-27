@@ -15,6 +15,9 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use App\Filament\Clusters\Master\MasterCluster;
+
+
 use Illuminate\Database\Eloquent\Builder;
 
 class KegiatanOpdResource extends Resource
@@ -22,10 +25,12 @@ class KegiatanOpdResource extends Resource
     protected static ?string $model = KegiatanOpd::class;
 
     // protected static ?string $modelLabel = 'Kegiatan';
+    protected static ?string $cluster = MasterCluster::class;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Kegiatan OPD';
     protected static ?string $recordTitleAttribute = 'KegiatanOpd';
 
+    
     public static function form(Schema $schema): Schema
     {
         return KegiatanOpdForm::configure($schema);

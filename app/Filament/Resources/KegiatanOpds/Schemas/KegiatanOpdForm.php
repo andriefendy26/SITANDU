@@ -28,14 +28,14 @@ class KegiatanOpdForm
                     ->searchable()
                     ->preload()
                     ->required(),
+                TextInput::make('title')
+                    ->label('Judul Kegiatan OPD')
+                    ->required(),
                 FileUpload::make('image')
                     ->label('Thumbnail Artikel')
                     ->disk('public')
                     ->directory('kegiatan')
                     ->image()
-                    ->required(),
-                TextInput::make('title')
-                    ->label('Judul Kegiatan OPD')
                     ->required(),
                 RichEditor::make('content')
                     ->label('Kegiatan OPD')
@@ -49,6 +49,7 @@ class KegiatanOpdForm
                         ->schema([
                             FileUpload::make('file_path')
                                 ->image()
+                                ->disk('public')
                                 ->directory('dokumentasi-kegiatan')
                                 ->imagePreviewHeight('150')
                                 ->required(),
@@ -59,7 +60,7 @@ class KegiatanOpdForm
                         ->minItems(1)
                         ->maxItems(10)
                         ->reorderable('urutan') // drag & drop urutan
-                        ->collapsible()
+                        // ->collapsible()
                         ->itemLabel(fn (array $state): ?string => $state['keterangan'] ?? 'Foto'),
                 ]),
             ]);

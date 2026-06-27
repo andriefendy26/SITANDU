@@ -17,16 +17,21 @@ use Filament\Tables\Table;
 
 use Illuminate\Database\Eloquent\Builder;
 
+use App\Filament\Clusters\Master\MasterCluster;
+
+
 class KegiatanPosyanduResource extends Resource
 {
     protected static ?string $model = KegiatanPosyandu::class;
 
+    protected static ?string $cluster = MasterCluster::class;
     protected static ?string $modelLabel = 'Kegiatan';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Kegiatan Posyandu';
 
     protected static ?string $recordTitleAttribute = 'title';
 
+    
     public static function form(Schema $schema): Schema
     {
         return KegiatanPosyanduForm::configure($schema);

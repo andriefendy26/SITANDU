@@ -15,9 +15,12 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use App\Filament\Clusters\Master\MasterCluster;
+
 class KategoriKegiatanPosyanduResource extends Resource
 {
     protected static ?string $model = KategoriKegiatanPosyandu::class;
+    protected static ?string $cluster = MasterCluster::class;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Kegiatan Posyandu';
     protected static ?string $recordTitleAttribute = 'name';

@@ -24,32 +24,42 @@ class UsersTable
         return $table
             ->columns([
                 Split::make([
-                    
                     Stack::make([
-                        TextColumn::make('name')
+                        TextColumn::make('username')
+                            ->searchable()
                             ->badge()
-                            ->color('info'),
-                        TextColumn::make('username'),
+                            ->icon('heroicon-m-user')
+                            ->iconPosition(IconPosition::Before),
                         TextColumn::make('email')
+                            ->searchable()
+                            ->icon('heroicon-m-envelope')
                             ->iconPosition(IconPosition::Before),
                     ])->alignment(Alignment::Center),
                     Stack::make([
                         TextColumn::make('dokumen_count')
-                            ->label('Total Daokumen')
+                            ->label('Total Dokumen')
                             ->badge()
-                                ->counts('dokumen'),
+                            ->icon('heroicon-m-document-text')
+                            ->iconPosition(IconPosition::Before)
+                            ->counts('dokumen'),
+                        TextColumn::make('units.name')
+                            ->label('Unit')
+                            ->color('danger')
+                            ->badge()
+                            ->icon('heroicon-m-building-office')
+                            ->iconPosition(IconPosition::Before),
                     ])->alignment(Alignment::End),
-
                 ]),
             ])
             ->contentGrid([
                 'md' => 2,
                 'xl' => 3,
             ])
+            ->filters([])
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
-            ], position: RecordActionsPosition::BeforeColumns)
+            ], position: RecordActionsPosition::AfterColumns)
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),

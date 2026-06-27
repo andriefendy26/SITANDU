@@ -15,10 +15,13 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use App\Filament\Clusters\Master\MasterCluster;
+
 class InformasiLayananResource extends Resource
 {
     protected static ?string $model = InformasiLayanan::class;
 
+    protected static ?string $cluster = MasterCluster::class;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
 

@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 
 class ArticlesTable
@@ -16,11 +17,18 @@ class ArticlesTable
         return $table
             ->columns([
                 TextColumn::make('User.name')
+                    ->label("Pengguna")
+                    ->badge()
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('Category.name')
+                    ->label("Kategori")
                     ->numeric()
                     ->sortable(),
+                ImageColumn::make('image')
+                    ->label("Cover")
+                    ->imageSize(100)
+                    ->disk('public'),
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('slug')

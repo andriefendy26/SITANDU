@@ -28,14 +28,15 @@ class KegiatanPosyanduForm
                     ->searchable()
                     ->preload()
                     ->required(),
+              
+                TextInput::make('title')
+                    ->label('Judul Kegiatan Posyandu')
+                    ->required(),
                 FileUpload::make('image')
                     ->label('Thumbnail Artikel')
                     ->disk('public')
                     ->directory('kegiatan')
                     ->image()
-                    ->required(),
-                TextInput::make('title')
-                    ->label('Judul Kegiatan Posyandu')
                     ->required(),
                 RichEditor::make('content')
                     ->label('Kegiatan Posyandu')
@@ -50,10 +51,10 @@ class KegiatanPosyanduForm
                         ->schema([
                             FileUpload::make('file_path')
                                 ->image()
+                                ->disk('public')
                                 ->directory('dokumentasi-kegiatan')
                                 ->imagePreviewHeight('150')
                                 ->required(),
-
                         ])
                         // ->columns(1)
                         ->addActionLabel('+ Tambah Foto')

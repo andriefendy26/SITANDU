@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
 
 class KegiatanOpdsTable
@@ -23,6 +24,21 @@ class KegiatanOpdsTable
                     ->sortable(),
                 TextColumn::make('title')
                     ->searchable(),
+                // TextColumn::make('dokumentasi.file_path')
+                //     ->searchable(),
+                ImageColumn::make('dokumentasi.file_path')
+                    // ->disk('private')
+                    ->imageHeight(40)
+                    ->circular()
+                    ->stacked()
+                    ->ring(5),
+                // ImageColumn::make('dokumentasi.path')
+                //     ->disk('private')
+                //     ->imageHeight(40)
+                //     ->circular()
+                //     ->stacked()
+                //     ->ring(5),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

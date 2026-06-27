@@ -15,14 +15,19 @@ class UnitsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->icon('heroicon-m-building-office')
+                    ->iconPosition(\Filament\Support\Enums\IconPosition::Before)
+                    ->weight(\Filament\Support\Enums\FontWeight::SemiBold),
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->dateTime('d M Y, H:i')
                     ->sortable()
+                    ->icon('heroicon-m-calendar')
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->dateTime('d M Y, H:i')
                     ->sortable()
+                    ->icon('heroicon-m-arrow-path')
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
