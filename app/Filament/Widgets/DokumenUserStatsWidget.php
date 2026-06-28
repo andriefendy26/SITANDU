@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Article;
 use App\Models\Dokumen;
 use App\Models\JenisDokumen;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -18,8 +19,15 @@ class DokumenUserStatsWidget extends BaseWidget
         }
 
         $base = Dokumen::where('id_user', $this->userId);
+        $baseArticel = Article::where('id_user', $this->userId);
+        // $baseKegiatan = Kegiatan::where('id_user', $this->userId);
 
         $stats = [
+            Stat::make('Total Berita', (clone $baseArticel)->count())
+                ->description('Semua Berita yang di terbitkan')
+                ->icon('heroicon-m-document-text')
+                ->color('danger'),
+                
             Stat::make('Total Dokumen', (clone $base)->count())
                 ->description('Semua dokumen')
                 ->icon('heroicon-m-document-text')
