@@ -24,7 +24,8 @@ class InformasiLayananResource extends Resource
     protected static ?string $cluster = MasterCluster::class;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
-
+    protected static ?int $navigationSort = 1;
+    
     protected static ?string $recordTitleAttribute = 'InformasiLayanan';
 
     public static function form(Schema $schema): Schema

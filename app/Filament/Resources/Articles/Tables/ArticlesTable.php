@@ -16,21 +16,21 @@ class ArticlesTable
     {
         return $table
             ->columns([
-                TextColumn::make('User.name')
-                    ->label("Pengguna")
-                    ->badge()
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('Category.name')
-                    ->label("Kategori")
-                    ->numeric()
-                    ->sortable(),
                 ImageColumn::make('image')
                     ->label("Cover")
                     ->imageSize(100)
                     ->disk('public'),
                 TextColumn::make('title')
+                    ->label('Judul Berita')
                     ->searchable(),
+                TextColumn::make('User.name')
+                    ->label("Pengguna")
+                    ->sortable(),
+                TextColumn::make('Category.name')
+                    ->label("Kategori")
+                    ->badge()
+                    ->numeric()
+                    ->sortable(),
                 TextColumn::make('slug')
                     ->searchable(),
                 TextColumn::make('created_at')

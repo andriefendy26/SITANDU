@@ -39,6 +39,11 @@ class UserResource extends Resource
                 ;
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Pengguna';
+    }
+
     public static function getRelations(): array
     {
         return [

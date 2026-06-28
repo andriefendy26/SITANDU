@@ -17,15 +17,18 @@ class CategoryArticlesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Jenis Kategori')
                     ->searchable(),
                 TextColumn::make('created_at')
+                    ->label('Di buat saat')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
+                    // ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Di perbarui saat')
                     ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->sortable(),
+                    // ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

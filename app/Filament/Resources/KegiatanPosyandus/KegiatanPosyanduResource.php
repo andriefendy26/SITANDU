@@ -63,7 +63,7 @@ class KegiatanPosyanduResource extends Resource
 
     public static function getPluralLabel(): string
     {
-        return 'Kegiatan';
+        return 'Kegiatan Posyandu';
     }
 
     public static function getPages(): array

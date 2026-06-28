@@ -101,4 +101,9 @@ class StatsOverview extends StatsOverviewWidget
         return $stats;
     }
 
+    public function getColumns(): int | array
+    {
+        return 3;
     }
+
+}   

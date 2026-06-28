@@ -63,7 +63,7 @@ class KegiatanOpdResource extends Resource
 
     public static function getPluralLabel(): string
     {
-        return 'Kegiatan';
+        return 'Kegiatan OPD';
     }
 
     public static function getPages(): array

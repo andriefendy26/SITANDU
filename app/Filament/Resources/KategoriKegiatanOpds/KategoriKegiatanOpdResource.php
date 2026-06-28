@@ -44,6 +44,7 @@ class KategoriKegiatanOpdResource extends Resource
     {
         return [
             //
+            RelationManagers\KegiatanOpdRelationManager::class
         ];
     }
 

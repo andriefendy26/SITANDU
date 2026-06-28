@@ -6,8 +6,14 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Support\Enums\TextSize;
+
 
 class KategoriKegiatanOpdsTable
 {
@@ -15,23 +21,32 @@ class KategoriKegiatanOpdsTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                Split::make([
+                    TextColumn::make('name')
+                        ->size(TextSize::Large)
+                        ->searchable()
+                        ,
+                ])
+            ])
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 3,
             ])
             ->filters([
                 //
             ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label('Tambahkan Kategori')
+                    ->color("info"),
+            ])
             ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
+                ViewAction::make()
+                    ->label("Buka"),
+                EditAction::make()
+                    ->label("Edit"),
+                DeleteAction::make()
+                    ->label("Hapus"),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
