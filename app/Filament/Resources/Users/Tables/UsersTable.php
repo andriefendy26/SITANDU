@@ -32,13 +32,14 @@ class UsersTable
                             ->iconPosition(IconPosition::Before),
                         TextColumn::make('email')
                             ->searchable()
-                            ->icon('heroicon-m-envelope')
+                            // ->icon('heroicon-m-envelope')
                             ->iconPosition(IconPosition::Before),
                     ])->alignment(Alignment::Center),
                     Stack::make([
                         TextColumn::make('dokumen_count')
                             ->label('Total Dokumen')
                             ->badge()
+                            ->color('info')
                             ->icon('heroicon-m-document-text')
                             ->iconPosition(IconPosition::Before)
                             ->counts('dokumen'),

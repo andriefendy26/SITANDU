@@ -13,6 +13,6 @@ class MasterCluster extends Cluster
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedSquares2x2;
     protected static ?SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
 
-    protected static ?string $navigationLabel = 'Konten';
+    protected static ?string $navigationLabel = 'Kegiatan Dan Informasi';
 
 }

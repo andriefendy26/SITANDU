@@ -1,47 +1,46 @@
 <?php
 
-namespace App\Filament\Resources\KategoriKegiatanOpds\RelationManagers;
+namespace App\Filament\Resources\KategoriKegiatanPosyandus\RelationManagers;
 
-use App\Filament\Resources\KategoriKegiatanOpds\KategoriKegiatanOpdResource;
+use App\Filament\Resources\KategoriKegiatanPosyandus\KategoriKegiatanPosyanduResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 
-class KegiatanOpdRelationManager extends RelationManager
-{
-    protected static string $relationship = 'KegiatanOpd';
 
-    protected static ?string $relatedResource = KategoriKegiatanOpdResource::class;
-    
+class KegiatanPosyanduRelationManager extends RelationManager
+{
+    protected static string $relationship = 'KegiatanPosyandu';
+
+    protected static ?string $relatedResource = KategoriKegiatanPosyanduResource::class;
+
     public function table(Table $table): Table
     {
         return $table
-            ->columns([
+             ->columns([
                 TextColumn::make('user.name')
+                    ->label('Pengguna')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('kategori.name')
+                    ->label('Kategori')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')
                     ->searchable(),
-                // TextColumn::make('dokumentasi.file_path')
+                // TextColumn::make('image')
+                //     ->label('Thumbnail')
                 //     ->searchable(),
-                ImageColumn::make('dokumentasi.file_path')
-                    // ->disk('private')
-                    ->imageHeight(40)
-                    ->circular()
-                    ->stacked()
-                    ->ring(5),
-                // ImageColumn::make('dokumentasi.path')
-                //     ->disk('private')
-                //     ->imageHeight(40)
-                //     ->circular()
-                //     ->stacked()
-                //     ->ring(5),
-
+                ImageColumn::make('image')
+                    ->label('Thumbnail')
+                    ->disk('public')
+                    // ->directory('kegiatan')
+                    // ->rounded()
+                    ->height(50)
+                    ->width(50)
+                    ->visibility("public"),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -53,7 +52,7 @@ class KegiatanOpdRelationManager extends RelationManager
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->label('Tambahkan Kegiatan')
+                    ->label("Tambahkan Kegiatan")
                     ->color("info"),
             ]);
     }

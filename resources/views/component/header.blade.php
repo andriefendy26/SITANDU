@@ -12,7 +12,7 @@
       <li><a href="/">Beranda</a></li>
       <li><a href="/layanan">Layanan</a></li>
       <li><a href="/kegiatan">Kegiatan</a></li>
-      <li><a href="/artikel">Artikel</a></li>
+      <li><a href="/artikel">Berita</a></li>
       {{-- <li><a href="/dokumen">Dokumen</a></li> --}}
       <li><a href="/admin/login" class="btn-nav">Masuk Admin</a></li>
     </ul>

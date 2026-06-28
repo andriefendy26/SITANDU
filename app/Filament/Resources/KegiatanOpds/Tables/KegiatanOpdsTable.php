@@ -27,7 +27,7 @@ class KegiatanOpdsTable
                 // TextColumn::make('dokumentasi.file_path')
                 //     ->searchable(),
                 ImageColumn::make('dokumentasi.file_path')
-                    // ->disk('private')
+                    ->disk('public')
                     ->imageHeight(40)
                     ->circular()
                     ->stacked()

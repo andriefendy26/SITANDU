@@ -20,4 +20,15 @@ class Unit extends Model
     {
         return $this->hasMany(User::class, 'id_unit');
     }
+
+    public function kegiatanOpd()
+    {
+        return $this->hasMany(kegiatanOpd::class, 'id_unit');
+    }
+
+    public function kegiatanPosyandu()
+    {
+        return $this->hasMany(kegiatanPosyandu::class, 'id_unit');
+
+    }
 }

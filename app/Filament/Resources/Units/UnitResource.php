@@ -40,6 +40,8 @@ class UnitResource extends Resource
         return [
             //
             RelationManagers\UsersRelationManager::class,
+            // RelationManagers\KegiatanOpdRelationManager::class,
+            // RelationManagers\KegiatanPosyanduRelationManager::class,
         ];
     }
 

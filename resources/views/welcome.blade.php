@@ -82,6 +82,8 @@
             style="width: 350px; height: auto;" 
             alt="Ilustrasi Layanan Publik">
         <div style="
+          position:absolute;
+          bottom:-5%;
           width: 100%;
           max-width: 320px;
           background: rgba(255,255,255,0.12);
@@ -114,7 +116,7 @@
 </section>
 
 <!-- STATS -->
-<div class="stats">
+{{-- <div class="stats">
   <div class="stats-inner">
     <div class="stat-item">
       <div class="stat-number">{{$stats['layanan']}}</div>
@@ -133,7 +135,7 @@
       <div class="stat-label">Artikel Diterbitkan</div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <!-- SEARCH BAR -->
 {{-- <div class="search-bar">
