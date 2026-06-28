@@ -9,6 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
 
 class KegiatanOpdsTable
 {
@@ -50,6 +51,11 @@ class KegiatanOpdsTable
             ])
             ->filters([
                 //
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Tambahkan Kegiatan")
+                    ->color("info"),
             ])
             ->recordActions([
                 DeleteAction::make(),

@@ -9,6 +9,8 @@ use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
+use Filament\Actions\CreateAction;
+
 class KategoriLayanansTable
 {
     public static function configure(Table $table): Table
@@ -28,6 +30,11 @@ class KategoriLayanansTable
             ])
             ->filters([
                 //
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Tambahkan Kategori")
+                    ->color("info"),
             ])
             ->recordActions([
                 DeleteAction::make(),

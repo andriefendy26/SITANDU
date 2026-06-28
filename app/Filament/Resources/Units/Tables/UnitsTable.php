@@ -46,7 +46,7 @@ class UnitsTable
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->label('Tambahkan Kategori')
+                    ->label('Tambahkan Units')
                     ->color("info"),
             ])
             ->recordActions([
