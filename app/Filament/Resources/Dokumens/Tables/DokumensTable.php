@@ -9,6 +9,8 @@ use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
+use Filament\Actions\CreateAction;
+
 class DokumensTable
 {
     public static function configure(Table $table): Table
@@ -16,6 +18,7 @@ class DokumensTable
         return $table
             ->columns([
                 TextColumn::make('User.name')
+                
                     ->badge()
                     ->color('info')
                     ->sortable(),
@@ -46,6 +49,11 @@ class DokumensTable
             ])
             ->filters([
                 //
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Arsipkan Dokumen")
+                    ->color("info"),
             ])
             ->recordActions([
                 DeleteAction::make(),

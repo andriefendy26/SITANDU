@@ -9,6 +9,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
 
 class ArticlesTable
 {
@@ -48,6 +49,11 @@ class ArticlesTable
             ->recordActions([
                 DeleteAction::make(),
                 EditAction::make(),
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Buat Berita")
+                    ->color("info"),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

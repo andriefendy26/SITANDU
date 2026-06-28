@@ -16,6 +16,7 @@ use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\RecordActionsPosition;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
 
 class UsersTable
 {
@@ -57,6 +58,11 @@ class UsersTable
                 'xl' => 3,
             ])
             ->filters([])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Tambahkan Pengguna")
+                    ->color("info"),
+            ])
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),

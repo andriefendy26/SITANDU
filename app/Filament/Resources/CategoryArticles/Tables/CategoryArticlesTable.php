@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
 
 class CategoryArticlesTable
 {
@@ -32,6 +33,11 @@ class CategoryArticlesTable
             ])
             ->filters([
                 //
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Tambahkan Jenis Berita")
+                    ->color("info"),
             ])
             ->recordActions([
                 ViewAction::make(),

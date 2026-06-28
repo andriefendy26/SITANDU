@@ -9,6 +9,9 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
+use Filament\Actions\CreateAction;
+
+
 class InformasiLayanansTable
 {
     public static function configure(Table $table): Table
@@ -38,6 +41,11 @@ class InformasiLayanansTable
             ->recordActions([
                 DeleteAction::make(),
                 EditAction::make(),
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Tambahkan Informasi Layanan")
+                    ->color("info"),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

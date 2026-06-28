@@ -8,6 +8,8 @@ use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Actions\CreateAction;
+
 
 class JenisDokumensTable
 {
@@ -32,6 +34,11 @@ class JenisDokumensTable
             ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),
+            ])
+            ->headerActions([
+                CreateAction::make()
+                    ->label("Tambahkan Jenis Dokumen")
+                    ->color("info"),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

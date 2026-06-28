@@ -13,8 +13,10 @@ class JenisDokumenForm
         return $schema
             ->components([
                 TextInput::make('title')
+                    ->label('Judul Jenis Dokumen')
                     ->required(),
                 Textarea::make('note')
+                    ->label('catatan')
                     ->columnSpanFull(),
             ]);
     }

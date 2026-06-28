@@ -17,10 +17,12 @@ class DokumenForm
             ->components([
                 Section::make('Informasi Dokumen')->schema([
                     TextInput::make('title')
+                        ->label('Judul Dokumen')
                         ->required(),
                     Select::make('id_jenis_dokumen')->relationship('jenisDokumen', 'title')
                         ->required(),
                     Textarea::make('note')
+                        ->label('Deskripsi Dokumen (opsional) ')    
                         ->columnSpanFull(),
                 ])->columns(2),
                 Section::make('File Dokumen')->schema([
