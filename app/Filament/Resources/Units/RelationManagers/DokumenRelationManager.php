@@ -6,41 +6,39 @@ use App\Filament\Resources\Units\UnitResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Table;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
-class KegiatanPosyanduRelationManager extends RelationManager
+class DokumenRelationManager extends RelationManager
 {
-    protected static string $relationship = 'kegiatanPosyandu';
+    protected static string $relationship = 'Dokumen';
 
     protected static ?string $relatedResource = UnitResource::class;
-    protected static ?string $title = 'Kegiatan Posyandu';
+    protected static ?string $title = 'Dokumen';
 
     public function table(Table $table): Table
     {
         return $table
-            ->columns([
-                TextColumn::make('user.name')
-                    ->label('Pengguna')
-                    ->numeric()
+             ->columns([
+                TextColumn::make('User.name')
+                    ->badge()
+                    ->color('info')
                     ->sortable(),
-                TextColumn::make('kategori.name')
-                    ->label('Kategori')
-                    ->numeric()
+                TextColumn::make('JenisDokumen.title')
+                    ->badge()
+                    ->color('info')
                     ->sortable(),
                 TextColumn::make('title')
+                    ->label('Judul Dokumen')
+                    ->wrap()
                     ->searchable(),
-                // TextColumn::make('image')
-                //     ->label('Thumbnail')
-                //     ->searchable(),
-                ImageColumn::make('image')
-                    ->label('Thumbnail')
-                    ->disk('public')
-                    // ->directory('kegiatan')
-                    // ->rounded()
-                    ->height(50)
-                    ->width(50)
-                    ->visibility("public"),
+                TextColumn::make('path')
+                    ->label('File')
+                    ->formatStateUsing(fn () => 'Download Document')
+                    ->url(fn ($record) => asset('storage/documents/' . $record->path))
+                    ->openUrlInNewTab()
+                    ->color('success')
+                    ->icon('heroicon-o-document')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

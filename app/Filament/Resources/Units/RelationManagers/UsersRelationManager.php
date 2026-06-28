@@ -20,6 +20,7 @@ class UsersRelationManager extends RelationManager
     protected static string $relationship = 'users';
 
     protected static ?string $relatedResource = UnitResource::class;
+    protected static ?string $title = 'Pengguna';
 
     public function form(Schema $schema): Schema
     {
@@ -81,5 +82,10 @@ class UsersRelationManager extends RelationManager
             ->headerActions([
                 CreateAction::make(),
             ]);
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Users';
     }
 }

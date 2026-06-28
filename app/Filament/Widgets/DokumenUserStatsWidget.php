@@ -49,7 +49,7 @@ class DokumenUserStatsWidget extends BaseWidget
                 ->color('warning'),
         ];
 
-        // Tambah stat per jenis dokumen
+        // Stat per jenis dokumen
         $perJenis = JenisDokumen::withCount([
             'dokumen' => fn($q) => $q->where('id_user', $this->userId),
         ])->get();
