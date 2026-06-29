@@ -48,6 +48,7 @@ class UserForm
                             ->maxLength(255)
                             ->belowContent('Masukkan nama unit kerja secara lengkap. Contoh: Dinas Komunikasi dan Informatika.'),
                     ])
+                    ->required()
                     ->belowContent('Pilih unit kerja pengguna. Jika unit belum tersedia, tambahkan unit baru terlebih dahulu.')
                     ->preload()
                     ->searchable(),
@@ -57,6 +58,7 @@ class UserForm
                     ->relationship('roles', 'name')
                     ->multiple()
                     ->preload()
+                    ->required()
                     ->searchable()
                     ->belowContent('Pilih satu atau lebih role pengguna sesuai hak akses yang diberikan.'),
             ]);
