@@ -217,7 +217,7 @@
             <div class="kegiatan-body">
                 <div class="kegiatan-meta">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }} · {{ $item->lokasi }}</div>
                 <h3>{{ $item->title }}</h3>
-                <p>{{ strip_tags($item->content) }}</p>
+                <p>{{ Str::limit(strip_tags($item->content), 120) }}</p>
             </div>
         </div>
       @endforeach
@@ -261,7 +261,7 @@
             <div class="kegiatan-body">
                 <div class="kegiatan-meta">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }} · {{ $item->lokasi }}</div>
                 <h3>{{ $item->title }}</h3>
-                <p>{{ strip_tags($item->content) }}</p>
+                <p>{{ Str::limit(strip_tags($item->content), 120) }}</p>
             </div>
         </div>
       @endforeach

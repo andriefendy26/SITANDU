@@ -390,7 +390,7 @@
                             </div>
                         @endif
                         <h3>{{ $layanan->title }}</h3>
-                        <p>{{ Str::limit(strip_tags($layanan->content), 130) }}</p>
+                        <p>{{ Str::limit(strip_tags($layanan->content), 120) }}</p>
                         <span class="layanan-link">
                             Selengkapnya
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
