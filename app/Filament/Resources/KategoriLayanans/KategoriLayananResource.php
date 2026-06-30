@@ -24,7 +24,7 @@ class KategoriLayananResource extends Resource
      protected static ?string $cluster = MasterCluster::class;
     // protected static ?string $modelLabel = 'Kategori';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string |UnitEnum| null $navigationGroup = 'Informasi Layanan';
+    protected static string |UnitEnum| null $navigationGroup = 'Informasi Posyandu';
     protected static ?int $navigationSort = 0;
     
     protected static ?string $recordTitleAttribute = 'KategoriLayanan';

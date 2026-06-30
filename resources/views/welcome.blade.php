@@ -187,9 +187,9 @@
     <div class="kegiatan-header">
       <div>
         <div class="section-label">Kegiatan OPD</div>
-        <h2 class="section-title">Program &amp; Kegiatan<br>Terkini Dinas</h2>
+        <h2 class="section-title">Program &amp; Kegiatan<br>Terkini OPD</h2>
       </div>
-      <a href="/kegiatan" class="view-all">Lihat Semua →</a>
+      <a href="/kegiatanopd" class="view-all">Lihat Semua →</a>
     </div>
     <div class="kegiatan-grid">
       @if($kegiatan->isEmpty())
@@ -221,42 +221,50 @@
             </div>
         </div>
       @endforeach
-      {{-- <div class="kegiatan-card">
-        <div class="kegiatan-img">
-          <div class="kegiatan-img-bg type-1"></div>
-          <div class="kegiatan-tag">Sosialisasi</div>
-          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        </div>
-        <div class="kegiatan-body">
-          <div class="kegiatan-meta">24 April 2025 · Balai Kota</div>
-          <h3>Sosialisasi Program Pemberdayaan Masyarakat Terpadu Tahun 2025</h3>
-          <p>Kegiatan sosialisasi kepada seluruh lapisan masyarakat mengenai program unggulan pemerintah daerah.</p>
-        </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEGIATAN Posyandu -->
+<section class="kegiatan" id="kegiatan">
+  <div class="container">
+    <div class="kegiatan-header">
+      <div>
+        <div class="section-label">Kegiatan Posyandu</div>
+        <h2 class="section-title">Program &amp; Kegiatan<br>Terkini Posyandu</h2>
       </div>
-      <div class="kegiatan-card">
-        <div class="kegiatan-img">
-          <div class="kegiatan-img-bg type-2"></div>
-          <div class="kegiatan-tag">Pelatihan</div>
-          <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+      <a href="/kegiatanposyandu" class="view-all">Lihat Semua →</a>
+    </div>
+    <div class="kegiatan-grid">
+      @if($kegiatanPosyandu->isEmpty())
+        <p style="grid-column:1/-1;text-align:center;color:rgba(0,0,0,0.6);">Belum ada kegiatan yang dipublikasikan.</p>
+      @endif
+      @foreach ($kegiatanPosyandu as $i => $item)
+        <div class="kegiatan-card">
+          
+            {{-- Thumbnail --}}
+            <div class="artikel-thumb {{ $item->image ? '' : ['t1','t2','t3'][$i % 3] }}"
+                style="{{ $item->image ? 'padding:0; background:none;' : '' }}">
+              @if($item->image)
+                <img src="{{ asset('storage/' . $item->image) }}"
+                    alt="{{ $item->title }}"
+                    style="width:100%; height:100%; object-fit:cover; display:block;">
+              @else
+                <p>Tidak ada thumbnail</p>
+              @endif
+            </div>
+            {{-- <div class="kegiatan-img">
+                <div class="kegiatan-img-bg type-{{ ($loop->iteration % 3) + 1 }}"></div>
+                <div class="kegiatan-tag">{{ $item->kategori->name }}</div>
+                <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div> --}}
+            <div class="kegiatan-body">
+                <div class="kegiatan-meta">{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }} · {{ $item->lokasi }}</div>
+                <h3>{{ $item->title }}</h3>
+                <p>{{ strip_tags($item->content) }}</p>
+            </div>
         </div>
-        <div class="kegiatan-body">
-          <div class="kegiatan-meta">20 April 2025 · Gedung Diklat</div>
-          <h3>Pelatihan Digital untuk UMKM Daerah</h3>
-          <p>Workshop transformasi digital bagi pelaku UMKM lokal.</p>
-        </div>
-      </div>
-      <div class="kegiatan-card">
-        <div class="kegiatan-img">
-          <div class="kegiatan-img-bg type-3"></div>
-          <div class="kegiatan-tag">Rapat</div>
-          <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-        </div>
-        <div class="kegiatan-body">
-          <div class="kegiatan-meta">18 April 2025 · Ruang Rapat</div>
-          <h3>Rapat Koordinasi Lintas Sektor Semester I</h3>
-          <p>Koordinasi program antar dinas untuk sinergi capaian target.</p>
-        </div>
-      </div> --}}
+      @endforeach
     </div>
   </div>
 </section>

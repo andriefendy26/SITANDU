@@ -1,8 +1,5 @@
 <?php
-// ══════════════════════════════════════════════
-// LayananController.php
-// app/Http/Controllers/LayananController.php
-// ══════════════════════════════════════════════
+
 namespace App\Http\Controllers;
 
 use App\Models\InformasiLayanan;
@@ -13,29 +10,23 @@ class LayananController extends Controller
 {
     public function index(Request $request)
     {
-        // Untuk grouped view, ambil semua kategori beserta relasinya
-        $kategoris = KategoriLayanan::with(['informasiLayanan' => function ($q) use ($request) {
-            if ($request->filled('search')) {
-                $q->where('title', 'like', '%' . $request->search . '%')
-                  ->orWhere('content', 'like', '%' . $request->search . '%');
-            }
-        }])->orderBy('name')->get();
+        // Halaman kategori (default)
+        if (!$request->has('kategori') && !$request->has('search')) {
+            $kategoris = KategoriLayanan::withCount('informasiLayanan')
+                ->with('informasiLayanan')
+                ->get();
 
-        // Untuk flat/paginated view (filter/search aktif)
-        $query = InformasiLayanan::with(['user', 'kategori'])->latest();
-
-        if ($request->filled('kategori')) {
-            $query->where('id_kategori_layanan', $request->kategori);
+            return view('layanan', compact('kategoris'));
         }
 
-        if ($request->filled('search')) {
-            $query->where(function ($q) use ($request) {
-                $q->where('title', 'like', '%' . $request->search . '%')
-                  ->orWhere('content', 'like', '%' . $request->search . '%');
-            });
-        }
+        // Halaman list per kategori / search
+        $layanans = InformasiLayanan::query()
+            ->when($request->kategori, fn($q) => $q->where('id_kategori_layanan', $request->kategori)) // ✅ fix
+            ->when($request->search, fn($q) => $q->where('title', 'like', "%{$request->search}%"))
+            ->with('kategori')
+            ->paginate(12);
 
-        $layanans = $query->paginate(12);
+        $kategoris = KategoriLayanan::with('informasiLayanan')->get();
 
         return view('layanan', compact('layanans', 'kategoris'));
     }
@@ -54,4 +45,3 @@ class LayananController extends Controller
         return view('layanan-detail', compact('layanan', 'related'));
     }
 }
-

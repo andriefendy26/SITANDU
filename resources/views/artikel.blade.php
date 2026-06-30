@@ -109,7 +109,7 @@
         color: var(--white);
     }
     .filter-search {
-        margin-left: auto;
+        margin-right: auto;
         position: relative;
     }
     .filter-search input {
@@ -348,8 +348,8 @@
 {{-- FILTER BAR --}}
 <div class="filter-bar">
     <div class="filter-bar-inner">
-        <span class="filter-label">Kategori:</span>
-        <div class="filter-pills">
+        <span class="filter-label">Serach :</span>
+        {{-- <div class="filter-pills">
             <a href="{{ route('artikel.index') }}" class="filter-pill {{ !request('kategori') ? 'active' : '' }}">Semua</a>
             @foreach($kategoris as $kategori)
                 <a href="{{ route('artikel.index', ['kategori' => $kategori->id]) }}"
@@ -357,7 +357,7 @@
                     {{ $kategori->name }}
                 </a>
             @endforeach
-        </div>
+        </div> --}}
         <div class="filter-search">
             <form method="GET" action="{{ route('artikel.index') }}">
                 @if(request('kategori'))

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $layanan->title)
+@section('title', ' - Layanan Posyandu')
 
 @section('content')
 
@@ -38,9 +38,38 @@
         max-width: 300px;
     }
 
+     /* ── FEATURE IMAGE ── */
+    .artikel-feature-img {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .artikel-feature-img-wrap {
+        height: 420px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        background: linear-gradient(135deg, #EEF3FF 0%, #DDEAFF 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 0 0;
+    }
+    .artikel-feature-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+    .artikel-feature-img-placeholder svg {
+        width: 80px; height: 80px;
+        fill: var(--primary);
+        opacity: 0.12;
+    }
+    @media (max-width: 680px) { .artikel-feature-img-wrap { height: 240px; } }
+
     /* ── LAYANAN HERO ── */
     .layanan-hero {
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        background-color: var(--primary-dark); /* fallback jika tidak ada image */
+        background-size: cover;
+        background-position: center;
         padding: 3.5rem 2rem;
         position: relative;
         overflow: hidden;
@@ -50,12 +79,24 @@
         position: absolute;
         inset: 0;
         background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        z-index: 0;
     }
+
+      /* ✅ Overlay gelap di atas foto agar teks tetap terbaca */
+   
+
     .layanan-hero-inner {
         max-width: 960px;
         margin: 0 auto;
         position: relative;
+        z-index: 2; /* ✅ pastikan konten di atas overlay */
     }
+
+    /* .layanan-hero-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        position: relative;
+    } */
     .layanan-hero-top {
         display: flex;
         align-items: flex-start;
@@ -309,34 +350,6 @@
     .btn-contact:hover { background: var(--primary-dark); }
     .btn-contact svg { width: 14px; height: 14px; stroke: currentColor; }
 
-    /* ── FEATURE IMAGE ── */
-    .artikel-feature-img {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-    .artikel-feature-img-wrap {
-        height: 420px;
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        background: linear-gradient(135deg, #EEF3FF 0%, #DDEAFF 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 2rem 0 0;
-    }
-    .artikel-feature-img-wrap img {
-        width: 100%; height: 100%;
-        object-fit: cover;
-    }
-    .artikel-feature-img-placeholder svg {
-        width: 80px; height: 80px;
-        fill: var(--primary);
-        opacity: 0.12;
-    }
-    @media (max-width: 680px) { .artikel-feature-img-wrap { height: 240px; } }
-
-    
     /* ── SIDEBAR ── */
     .layanan-sidebar { position: sticky; top: 90px; }
 
@@ -512,15 +525,14 @@
         <a href="{{ url('/') }}">Beranda</a>
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         <a href="{{ route('layanan.index') }}">Layanan</a>
-        @if($layanan->kategori)
+        @if($kegiatan->kategori)
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        <a href="{{ route('layanan.index', ['kategori' => $layanan->kategori->id]) }}">{{ $layanan->kategori->name }}</a>
+        <a href="{{ route('layanan.index', ['kategori' => $kegiatan->kategori->id]) }}">{{ $kegiatan->kategori->name }}</a>
         @endif
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        <span>{{ $layanan->title }}</span>
+        <span>{{ $kegiatan->title }}</span>
     </div>
 </div>
-
 
 {{-- HERO --}}
 <div class="layanan-hero">
@@ -532,25 +544,25 @@
                 </svg>
             </div>
             <div class="layanan-hero-text">
-                @if($layanan->kategori)
-                    <a href="{{ route('layanan.index', ['kategori' => $layanan->kategori->id]) }}"
+                @if($kegiatan->kategori)
+                    <a href="{{ route('layanan.index', ['kategori' => $kegiatan->kategori->id]) }}"
                        class="layanan-hero-cat">
-                        {{ $layanan->kategori->name }}
+                        {{ $kegiatan->kategori->name }}
                     </a>
                 @endif
-                <h1>{{ $layanan->title }}</h1>
+                <h1>{{ $kegiatan->title }}</h1>
                 <div class="layanan-hero-meta">
                     <span>
                         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        Diperbarui {{ $layanan->updated_at->translatedFormat('d F Y') }}
+                        Diperbarui {{ $kegiatan->updated_at->translatedFormat('d F Y') }}
                     </span>
                     <span>
                         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
                         </svg>
-                        {{ $layanan->user->name ?? 'Admin OPD' }}
+                        {{ $kegiatan->user->name ?? 'Admin OPD' }}
                     </span>
                 </div>
             </div>
@@ -561,8 +573,8 @@
 {{-- FEATURE IMAGE --}}
 <div class="artikel-feature-img">
     <div class="artikel-feature-img-wrap">
-        @if($layanan->image)
-            <img src="{{ asset('storage/' . $layanan->image) }}" alt="{{ $layanan->title }}">
+        @if($kegiatan->image)
+            <img src="{{ asset('storage/' . $kegiatan->image) }}" alt="{{ $kegiatan->title }}">
         @else
             <div class="artikel-feature-img-placeholder">
                 <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -580,19 +592,19 @@
 
             {{-- Quick info boxes --}}
             <div class="layanan-info-boxes">
-                @if($layanan->kategori)
+                @if($kegiatan->kategori)
                 <div class="info-box">
                     <div class="info-box-label">Kategori</div>
-                    <div class="info-box-value">{{ $layanan->kategori->name }}</div>
+                    <div class="info-box-value">{{ $kegiatan->kategori->name }}</div>
                 </div>
                 @endif
                 <div class="info-box">
                     <div class="info-box-label">Diterbitkan</div>
-                    <div class="info-box-value">{{ $layanan->created_at->format('d M Y') }}</div>
+                    <div class="info-box-value">{{ $kegiatan->created_at->format('d M Y') }}</div>
                 </div>
                 <div class="info-box">
                     <div class="info-box-label">Penanggung Jawab</div>
-                    <div class="info-box-value">{{ $layanan->user->name ?? 'Admin OPD' }}</div>
+                    <div class="info-box-value">{{ $kegiatan->user->name ?? 'Admin OPD' }}</div>
                 </div>
             </div>
 
@@ -603,7 +615,24 @@
 
             {{-- Main content --}}
             <div class="layanan-prose" id="layanan-content">
-                {!! $layanan->content !!}
+                {!! $kegiatan->content !!}
+            </div>
+
+            {{-- ✅ Dokumentasi foto — dipindah ke dalam .layanan-content --}}
+            <div class="dokumentasi-section">
+                <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--primary-dark);margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border);">
+                    Dokumentasi Kegiatan
+                </h2>
+
+                <div class="doc-grid">
+                    @forelse($kegiatan->dokumentasi as $foto)
+                        <a href="{{ asset('storage/' . $foto->file_path) }}" target="_blank" class="doc-item">
+                            <img src="{{ asset('storage/' . $foto->file_path) }}" alt="Dokumentasi kegiatan">
+                        </a>
+                    @empty
+                        <p style="color:var(--text-muted); font-size:14px;">Belum ada dokumentasi.</p>
+                    @endforelse
+                </div>
             </div>
 
             {{-- Bottom actions --}}

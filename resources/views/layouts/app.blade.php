@@ -46,6 +46,7 @@
 
         
         /* ── NAVBAR ── */
+        /* ── NAVBAR ── */
         .nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -71,22 +72,20 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            min-width: 0;
         }
 
         .nav-logo {
             width: 42px;
             height: 42px;
-            /* background: var(--primary); */
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-shrink: 0;
         }
-
 
         .nav-title {
             display: flex;
             flex-direction: column;
+            min-width: 0;
         }
 
         .nav-title span:first-child {
@@ -102,6 +101,9 @@
             color: var(--text-muted);
             letter-spacing: 0.04em;
             text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .nav-links {
@@ -136,6 +138,91 @@
             background: var(--primary-light) !important;
             transform: translateY(-1px);
         }
+
+        /* ── HAMBURGER BUTTON (hidden on desktop) ── */
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .nav-burger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: transform 0.25s, opacity 0.25s;
+        }
+
+        .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-burger.active span:nth-child(2) { opacity: 0; }
+        .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── RESPONSIVE BREAKPOINTS ── */
+
+        /* Tablet: kecilkan title, kurangi gap */
+        @media (max-width: 992px) {
+            .nav-inner { padding: 0 1.5rem; gap: 1rem; }
+            .nav-links { gap: 1.25rem; }
+            .nav-title span:last-child { display: none; } /* sembunyikan subtitle panjang */
+        }
+
+        /* Mobile: hamburger + dropdown menu */
+        @media (max-width: 768px) {
+            .nav-burger { display: flex; }
+
+            .nav-links {
+                display: none; /* default tersembunyi */
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+            }
+
+            .nav-links.active {
+                display: flex; /* tampil saat aktif */
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child { border-bottom: none; }
+
+            .nav-links a {
+                display: block;
+                padding: 14px 1.5rem;
+                font-size: 15px;
+            }
+
+            .btn-nav {
+                margin: 0.75rem 1.5rem;
+                text-align: center;
+                display: block;
+            }
+        }
+
+        /* Extra small: perkecil logo & title */
+        @media (max-width: 420px) {
+            .nav-logo { width: 34px; height: 34px; }
+            .nav-title span:first-child { font-size: 13px; }
+        }   
 
         /* ── HERO ── */
         .hero {
@@ -349,7 +436,32 @@
                 height: 200px;
             }
         }
-
+        /* ── DOKUMENTASI GRID ── */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        @media (max-width: 600px) {
+            .doc-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .doc-item {
+            aspect-ratio: 1 / 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            display: block;
+        }
+        .doc-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .doc-item:hover img {
+            transform: scale(1.06);
+        }
         .hero-card {
             background: rgba(255,255,255,0.07);
             border: 1px solid rgba(255,255,255,0.12);
@@ -1065,10 +1177,32 @@
             color: var(--white);
         }
         </style>
+
 </head>
+
 <body>
     @include('component.header')
     @yield('content')
     @include('component.footer')
 </body>
+<script>
+        const burger = document.getElementById('navBurger');
+        const navLinks = document.getElementById('navLinks');
+
+        burger.addEventListener('click', function () {
+            const isOpen = navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+            burger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Tutup menu saat klik link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                burger.classList.remove('active');
+                burger.setAttribute('aria-expanded', false);
+            });
+        });
+        
+    </script>
 </html>

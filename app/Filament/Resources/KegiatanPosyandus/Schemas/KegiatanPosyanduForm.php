@@ -33,11 +33,12 @@ class KegiatanPosyanduForm
                     ->label('Judul Kegiatan Posyandu')
                     ->required(),
                 FileUpload::make('image')
-                    ->label('Thumbnail Artikel')
+                    ->label('Thumbnail Layanan')
                     ->disk('public')
-                    ->directory('kegiatan')
+                    ->directory('layanan')
                     ->image()
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
                 RichEditor::make('content')
                     ->label('Kegiatan Posyandu')
                     ->required()
@@ -63,7 +64,7 @@ class KegiatanPosyanduForm
                         ->reorderable('urutan') // drag & drop urutan
                         ->collapsible()
                         ->itemLabel(fn (array $state): ?string => $state['keterangan'] ?? 'Foto'),
-                ]),
+                ])->columnSpanFull(),
             ]);
     }
 }

@@ -36,7 +36,8 @@ class KegiatanOpdForm
                     ->disk('public')
                     ->directory('kegiatan')
                     ->image()
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
                 RichEditor::make('content')
                     ->label('Kegiatan OPD')
                     ->required()
@@ -62,7 +63,7 @@ class KegiatanOpdForm
                         ->reorderable('urutan') // drag & drop urutan
                         // ->collapsible()
                         ->itemLabel(fn (array $state): ?string => $state['keterangan'] ?? 'Foto'),
-                ]),
+                ])->columnSpanFull(),
             ]);
     }
 }

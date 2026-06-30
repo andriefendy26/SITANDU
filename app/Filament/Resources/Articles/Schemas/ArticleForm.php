@@ -21,7 +21,7 @@ class ArticleForm
                         TextInput::make('name')
                             ->required(),
                     ])
-                    ->searchable()
+                    // ->searchable()
                     ->required(),
                     // ->searchable(),
                 TextInput::make('title')

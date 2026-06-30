@@ -113,6 +113,33 @@
         color: rgba(255,255,255,0.7);
     }
     .layanan-hero-meta svg { width: 13px; height: 13px; stroke: currentColor; }
+    
+    /* ── FEATURE IMAGE ── */
+    .artikel-feature-img {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    .artikel-feature-img-wrap {
+        height: 420px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        background: linear-gradient(135deg, #EEF3FF 0%, #DDEAFF 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 0 0;
+    }
+    .artikel-feature-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+    .artikel-feature-img-placeholder svg {
+        width: 80px; height: 80px;
+        fill: var(--primary);
+        opacity: 0.12;
+    }
+    @media (max-width: 680px) { .artikel-feature-img-wrap { height: 240px; } }
 
     /* ── MAIN LAYOUT ── */
     .layanan-layout {
@@ -529,6 +556,20 @@
     </div>
 </div>
 
+<div class="artikel-feature-img">
+    <div class="artikel-feature-img-wrap">
+        @if($kegiatan->image)
+            <img src="{{ asset('storage/' . $kegiatan->image) }}" alt="{{ $kegiatan->title }}">
+        @else
+            <div class="artikel-feature-img-placeholder">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+        @endif
+    </div>
+</div>
+
+
+{{-- MAIN LAYOUT --}}
 {{-- MAIN LAYOUT --}}
 <div style="background:var(--white);">
     <div class="layanan-layout">
@@ -562,6 +603,23 @@
             {{-- Main content --}}
             <div class="layanan-prose" id="layanan-content">
                 {!! $kegiatan->content !!}
+            </div>
+
+            {{-- ✅ Dokumentasi foto — dipindah ke dalam .layanan-content --}}
+            <div class="dokumentasi-section">
+                <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--primary-dark);margin:2rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--border);">
+                    Dokumentasi Kegiatan
+                </h2>
+
+                <div class="doc-grid">
+                    @forelse($kegiatan->dokumentasi as $foto)
+                        <a href="{{ asset('storage/' . $foto->file_path) }}" target="_blank" class="doc-item">
+                            <img src="{{ asset('storage/' . $foto->file_path) }}" alt="Dokumentasi kegiatan">
+                        </a>
+                    @empty
+                        <p style="color:var(--text-muted); font-size:14px;">Belum ada dokumentasi.</p>
+                    @endforelse
+                </div>
             </div>
 
             {{-- Bottom actions --}}

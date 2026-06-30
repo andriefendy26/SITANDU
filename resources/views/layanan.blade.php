@@ -46,99 +46,8 @@
         font-size: 1.05rem;
         color: rgba(255,255,255,0.75);
         max-width: 560px;
-        margin: 0 auto 2rem;
-    }
-    .hero-search-wrap {
-        max-width: 480px;
         margin: 0 auto;
-        position: relative;
     }
-    .hero-search-wrap input {
-        width: 100%;
-        height: 48px;
-        padding: 0 48px 0 18px;
-        border-radius: 30px;
-        border: none;
-        font-family: var(--font-body);
-        font-size: 14px;
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(8px);
-        color: var(--white);
-        outline: none;
-        border: 1.5px solid rgba(255,255,255,0.3);
-        transition: background 0.2s, border-color 0.2s;
-    }
-    .hero-search-wrap input::placeholder { color: rgba(255,255,255,0.6); }
-    .hero-search-wrap input:focus {
-        background: rgba(255,255,255,0.22);
-        border-color: rgba(255,255,255,0.6);
-    }
-    .hero-search-wrap svg {
-        position: absolute;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 18px; height: 18px;
-        stroke: rgba(255,255,255,0.7);
-    }
-
-    /* ── FILTER BAR ── */
-    .filter-bar {
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-        padding: 1rem 2rem;
-        /* position: sticky; */
-        top: 68px;
-        z-index: 99;
-        box-shadow: var(--shadow-sm);
-    }
-    .filter-bar-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    .filter-label {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        white-space: nowrap;
-    }
-    .filter-pills {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    .filter-pill {
-        display: inline-block;
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 500;
-        border: 1.5px solid var(--border);
-        color: var(--text-mid);
-        background: var(--white);
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.2s;
-    }
-    .filter-pill:hover,
-    .filter-pill.active {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: var(--white);
-    }
-    .filter-count {
-        margin-left: auto;
-        font-size: 13px;
-        color: var(--text-muted);
-        white-space: nowrap;
-    }
-    .filter-count span { font-weight: 600; color: var(--primary); }
 
     /* ── LAYANAN SECTION ── */
     .layanan-section {
@@ -149,41 +58,92 @@
         max-width: 1200px;
         margin: 0 auto;
     }
-
-    /* GROUPED BY KATEGORI */
-    .layanan-group {
-        margin-bottom: 3.5rem;
-    }
-    .layanan-group-header {
+    .section-header {
         display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.875rem;
-        border-bottom: 2px solid var(--border);
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
     }
-    .layanan-group-dot {
-        width: 10px; height: 10px;
-        border-radius: 50%;
-        background: var(--primary);
-        flex-shrink: 0;
+    .section-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 0.4rem;
     }
-    .layanan-group-title {
+    .section-title {
         font-family: var(--font-display);
-        font-size: 1.2rem;
+        font-size: clamp(1.5rem, 3vw, 2rem);
         font-weight: 700;
         color: var(--primary-dark);
+        line-height: 1.25;
+        margin: 0 0 0.4rem;
     }
-    .layanan-group-count {
-        margin-left: auto;
-        font-size: 12px;
+    .section-desc {
+        font-size: 14px;
         color: var(--text-muted);
-        background: var(--surface-dark);
-        padding: 3px 10px;
-        border-radius: 12px;
-        font-weight: 500;
+        margin: 0;
+    }
+    .view-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: gap 0.2s;
+    }
+    .view-all:hover { gap: 10px; }
+
+    /* ── SEARCH BOX ── */
+    .layanan-search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg, 10px);
+        padding: 0.6rem 1rem;
+        max-width: 360px;
+        width: 100%;
+        box-shadow: var(--shadow-sm);
+    }
+    .layanan-search svg {
+        width: 16px; height: 16px;
+        stroke: var(--text-muted);
+        flex-shrink: 0;
+    }
+    .layanan-search input {
+        border: none;
+        outline: none;
+        flex: 1;
+        font-size: 14px;
+        color: var(--primary-dark);
+        background: transparent;
+    }
+    .layanan-search input::placeholder { color: var(--text-muted); }
+    .layanan-search button {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        padding: 0.45rem 0.9rem;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .layanan-search button:hover { background: var(--primary-dark); }
+    .layanan-search-wrap {
+        margin-bottom: 1.5rem;
     }
 
+    /* ── GRID ── */
     .layanan-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -192,7 +152,7 @@
     @media (max-width: 900px) { .layanan-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 580px) { .layanan-grid { grid-template-columns: 1fr; } }
 
-    /* CARD — reuse template's exact style */
+    /* ── CARD ── */
     .layanan-card {
         background: var(--white);
         border-radius: var(--radius-lg);
@@ -204,6 +164,8 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        text-decoration: none;
+        cursor: pointer;
     }
     .layanan-card::before {
         content: '';
@@ -221,6 +183,26 @@
     }
     .layanan-card:hover::before { transform: scaleX(1); }
 
+    .layanan-thumb {
+        width: 100%;
+        height: 150px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+        background: #EEF3FF;
+        flex-shrink: 0;
+    }
+    .layanan-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+    }
+    .layanan-card:hover .layanan-thumb img {
+        transform: scale(1.05);
+    }
+
     .layanan-icon {
         width: 52px; height: 52px;
         border-radius: 12px;
@@ -233,8 +215,8 @@
     }
     .layanan-icon svg { width: 26px; height: 26px; fill: var(--primary); }
 
-    /* Icon color variants per kategori */
     .layanan-card:nth-child(3n+1) .layanan-icon { background: #EEF3FF; }
+    .layanan-card:nth-child(3n+1) .layanan-icon svg { fill: var(--primary); }
     .layanan-card:nth-child(3n+2) .layanan-icon { background: #FFF8EE; }
     .layanan-card:nth-child(3n+2) .layanan-icon svg { fill: var(--accent); }
     .layanan-card:nth-child(3n+3) .layanan-icon { background: #F0FAF0; }
@@ -259,6 +241,17 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+    .layanan-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--primary);
+        margin-top: auto;
+    }
+    .layanan-badge svg { width: 13px; height: 13px; stroke: currentColor; }
+
     .layanan-link {
         display: inline-flex;
         align-items: center;
@@ -267,21 +260,11 @@
         font-weight: 600;
         color: var(--primary);
         text-decoration: none;
-        letter-spacing: 0.02em;
-        transition: gap 0.2s;
         margin-top: auto;
+        transition: gap 0.2s;
     }
     .layanan-link:hover { gap: 10px; }
     .layanan-link svg { width: 14px; height: 14px; stroke: currentColor; }
-
-    /* ── SINGLE PAGE VIEW (when no grouping) ── */
-    .layanan-flat-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
-    }
-    @media (max-width: 900px) { .layanan-flat-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 580px) { .layanan-flat-grid { grid-template-columns: 1fr; } }
 
     /* ── EMPTY STATE ── */
     .empty-state {
@@ -291,37 +274,6 @@
     }
     .empty-state svg { width: 56px; height: 56px; margin: 0 auto 1rem; opacity: 0.3; }
     .empty-state p { font-size: 15px; }
-
-    /* ── PAGINATION ── */
-    .pagination-wrap {
-        display: flex;
-        justify-content: center;
-        margin-top: 3rem;
-    }
-    .pagination-wrap .pagination { display: flex; gap: 6px; }
-    .pagination-wrap .page-item .page-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px; height: 36px;
-        border-radius: var(--radius);
-        border: 1.5px solid var(--border);
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--text-mid);
-        text-decoration: none;
-        transition: all 0.2s;
-    }
-    .pagination-wrap .page-item.active .page-link,
-    .pagination-wrap .page-item .page-link:hover {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: var(--white);
-    }
-    .pagination-wrap .page-item.disabled .page-link {
-        opacity: 0.4;
-        pointer-events: none;
-    }
 </style>
 
 {{-- PAGE HERO --}}
@@ -330,127 +282,184 @@
         <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor">
             <path d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3H7V7h2v4zm0-5H7V4h2v2z"/>
         </svg>
-        Informasi Layanan
+        Informasi Posyandu
     </div>
-    <h1>Layanan Publik OPD</h1>
+    <h1>Layanan Posyandu</h1>
     <p>Panduan lengkap prosedur, persyaratan, dan informasi layanan yang disediakan untuk masyarakat.</p>
-
-    <form method="GET" action="{{ route('layanan.index') }}" class="hero-search-wrap">
-        @if(request('kategori'))
-            <input type="hidden" name="kategori" value="{{ request('kategori') }}">
-        @endif
-        <input type="text" name="search" placeholder="Cari layanan yang Anda butuhkan…" value="{{ request('search') }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-    </form>
-</div>
-
-{{-- FILTER BAR --}}
-<div class="filter-bar">
-    <div class="filter-bar-inner">
-        <span class="filter-label">Kategori:</span>
-        <div class="filter-pills">
-            <a href="{{ route('layanan.index', request()->except('kategori')) }}"
-               class="filter-pill {{ !request('kategori') ? 'active' : '' }}">Semua</a>
-            @foreach($kategoris as $kategori)
-                <a href="{{ route('layanan.index', array_merge(request()->except('kategori'), ['kategori' => $kategori->id])) }}"
-                   class="filter-pill {{ request('kategori') == $kategori->id ? 'active' : '' }}">
-                    {{ $kategori->name }}
-                    <span style="opacity:0.6;font-size:10px;margin-left:2px">({{ $kategori->informasiLayanan->count() }})</span>
-                </a>
-            @endforeach
-        </div>
-        <span class="filter-count">
-            <span>{{ $layanans->total() }}</span> layanan ditemukan
-        </span>
-    </div>
 </div>
 
 {{-- LAYANAN LIST --}}
-<section class="layanan-section">
+{{-- <section class="layanan-section">
     <div class="layanan-section-inner">
 
-        @if($layanans->count() > 0)
+        <div class="section-header">
+            <div>
+                <div class="section-label">Informasi Layanan</div>
+                <h2 class="section-title">Layanan Publik<br>yang Kami Sediakan</h2>
+                <p class="section-desc">Temukan berbagai informasi layanan yang disediakan untuk masyarakat.</p>
+            </div>
+        </div>
 
-            {{-- If filtered by kategori or search → flat grid with pagination --}}
-            @if(request('kategori') || request('search'))
-                <div class="layanan-flat-grid">
-                    @foreach($layanans as $layanan)
-                    <div class="layanan-card">
+        @if($kategoris->count() > 0)
+            <div class="layanan-grid">
+                @foreach($kategoris as $kategori)
+                    @if($kategori->informasiLayanan->count() > 0)
+                    <a href="{{ route('layanan.index', ['kategori' => $kategori->id]) }}" class="layanan-card">
                         <div class="layanan-icon">
                             <svg viewBox="0 0 24 24">
                                 <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
                             </svg>
                         </div>
-                        <h3>{{ $layanan->title }}</h3>
-                        <p>{{ Str::limit(strip_tags($layanan->content), 130) }}</p>
-                        <a href="{{ route('layanan.show', $layanan->id) }}" class="layanan-link">
-                            Selengkapnya
+                        <h3>{{ $kategori->name }}</h3>
+                        <p>{{ $kategori->deskripsi ?? 'Lihat berbagai layanan dalam kategori ini.' }}</p>
+                        <span class="layanan-badge">
+                            {{ $kategori->informasiLayanan->count() }} layanan tersedia
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                             </svg>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-
-                <div class="pagination-wrap">
-                    {{ $layanans->appends(request()->query())->links() }}
-                </div>
-
-            {{-- Default → grouped by kategori --}}
-            @else
-                @foreach($kategoris as $kategori)
-                    @if($kategori->informasiLayanan->count() > 0)
-                    <div class="layanan-group">
-                        <div class="layanan-group-header">
-                            <div class="layanan-group-dot"></div>
-                            <span class="layanan-group-title">{{ $kategori->name }}</span>
-                            <span class="layanan-group-count">{{ $kategori->informasiLayanan->count() }} layanan</span>
-                        </div>
-                        <div class="layanan-grid">
-                            @foreach($kategori->informasiLayanan->take(6) as $layanan)
-                            <div class="layanan-card">
-                                <div class="layanan-icon">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                                    </svg>
-                                </div>
-                                <h3>{{ $layanan->title }}</h3>
-                                <p>{{ Str::limit(strip_tags($layanan->content), 130) }}</p>
-                                <a href="{{ route('layanan.show', $layanan->id) }}" class="layanan-link">
-                                    Selengkapnya →
-                                </a>
-                            </div>
-                            @endforeach
-                        </div>
-
-                        @if($kategori->informasiLayanan->count() > 6)
-                        <div style="text-align:center; margin-top:1.25rem;">
-                            <a href="{{ route('layanan.index', ['kategori' => $kategori->id]) }}"
-                               style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--primary);text-decoration:none;">
-                                Lihat semua {{ $kategori->informasiLayanan->count() }} layanan {{ $kategori->name }}
-                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </a>
-                        </div>
-                        @endif
-                    </div>
+                        </span>
+                    </a>
                     @endif
                 @endforeach
-            @endif
-
+            </div>
         @else
             <div class="empty-state">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                 </svg>
-                <p>Belum ada layanan yang tersedia{{ request('search') ? ' untuk pencarian "' . request('search') . '"' : '' }}.</p>
+                <p>Belum ada kategori layanan yang tersedia.</p>
             </div>
         @endif
 
     </div>
+</section> --}}
+
+{{-- LAYANAN LIST --}}
+<section class="layanan-section">
+    <div class="layanan-section-inner">
+        {{-- SEARCH FORM --}}
+        <div class="layanan-search-wrap">
+            <form action="{{ route('layanan.index') }}" method="GET" class="layanan-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input
+                    type="text"
+                    name="search"
+                    value="{{ request('search') }}"
+                    placeholder="Cari layanan..."
+                >
+                @if(request('kategori'))
+                    <input type="hidden" name="kategori" value="{{ request('kategori') }}">
+                @endif
+                <button type="submit">Cari</button>
+            </form>
+        </div>
+        
+        @if(isset($layanans))
+            {{-- ✅ MODE: List layanan per kategori / search --}}
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Informasi Layanan</div>
+                    <h2 class="section-title">
+                        @if(request('kategori'))
+                            {{ $kategoris->firstWhere('id', request('kategori'))?->name }}
+                        @else
+                            Hasil Pencarian
+                        @endif
+                    </h2>
+                    <p class="section-desc">{{ $layanans->total() }} layanan ditemukan</p>
+                </div>
+                <a href="{{ route('layanan.index') }}" class="view-all">← Semua Kategori</a>
+            </div>
+
+            @if($layanans->count() > 0)
+                <div class="layanan-grid">
+                    @foreach($layanans as $layanan)
+                    <a href="{{ route('layanan.show', $layanan->id) }}" class="layanan-card">
+                        @if($layanan->image)
+                            <div class="layanan-thumb">
+                                <img src="{{ asset('storage/' . $layanan->image) }}" alt="{{ $layanan->title }}">
+                            </div>
+                        @else
+                            <div class="layanan-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                                </svg>
+                            </div>
+                        @endif
+                        <h3>{{ $layanan->title }}</h3>
+                        <p>{{ Str::limit(strip_tags($layanan->content), 130) }}</p>
+                        <span class="layanan-link">
+                            Selengkapnya
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </span>
+                    </a>
+                    @endforeach
+                </div>
+
+                <div style="display:flex;justify-content:center;margin-top:3rem;">
+                    {{ $layanans->appends(request()->query())->links() }}
+                </div>
+            @else
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <p>Belum ada layanan dalam kategori ini.</p>
+                </div>
+            @endif
+
+        @else
+            {{-- MODE: Grid kategori (default, sudah ada) --}}
+            <div class="section-header">
+                <div>
+                    <div class="section-label">Informasi Layanan</div>
+                    <h2 class="section-title">Layanan Publik<br>yang Kami Sediakan</h2>
+                    <p class="section-desc">Temukan berbagai informasi layanan yang disediakan untuk masyarakat.</p>
+                </div>
+            </div>
+
+            @if($kategoris->count() > 0)
+                <div class="layanan-grid">
+                    @foreach($kategoris as $kategori)
+                        @if($kategori->informasiLayanan->count() > 0)
+                        <a href="{{ route('layanan.index', ['kategori' => $kategori->id]) }}" class="layanan-card">
+                            <div class="layanan-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                                </svg>
+                            </div>
+                            <h3>{{ $kategori->name }}</h3>
+                            <p>{{ $kategori->deskripsi ?? 'Lihat berbagai layanan dalam kategori ini.' }}</p>
+                            <span class="layanan-badge">
+                                {{ $kategori->informasiLayanan->count() }} layanan tersedia
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </span>
+                        </a>
+                        @endif
+                    @endforeach
+                </div>
+            @else
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <p>Belum ada kategori layanan yang tersedia.</p>
+                </div>
+            @endif
+        @endif
+
+    </div>
 </section>
+
+
+
 
 <script>
     const observer = new IntersectionObserver((entries) => {

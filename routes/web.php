@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\KegiatanPosyanduController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\HomeController;
@@ -14,8 +15,12 @@ Route::get('/layanan',       [LayananController::class, 'index'])->name('layanan
 Route::get('/layanan/{id}',  [LayananController::class, 'show'])->name('layanan.show');
 
 // ── Kegiatan ──────────────────────────────────
-Route::get('/kegiatan',        [KegiatanController::class, 'index'])->name('kegiatan.index');
-Route::get('/kegiatan/{slug}', [KegiatanController::class, 'show'])->name('kegiatan.show');
+Route::get('/kegiatanopd',        [KegiatanController::class, 'index'])->name('kegiatan.index');
+Route::get('/kegiatanopd/{slug}', [KegiatanController::class, 'show'])->name('kegiatan.show');
+
+// ── Kegiatan ──────────────────────────────────
+Route::get('/kegiatanposyandu',        [KegiatanPosyanduController::class, 'index'])->name('kegiatanposyandu.index');
+Route::get('/kegiatanposyandu/{slug}', [KegiatanPosyanduController::class, 'show'])->name('kegiatanposyandu.show');
  
 // ── Artikel ───────────────────────────────────
 Route::get('/artikel',        [ArtikelController::class, 'index'])->name('artikel.index');

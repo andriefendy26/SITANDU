@@ -6,6 +6,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class InformasiLayananForm
@@ -25,9 +26,17 @@ class InformasiLayananForm
                     ->searchable()
                     ->preload()
                     ->required(),
+                 
                 TextInput::make('title')
                     ->label('Judul Informasi Layanan')
                     ->required(),
+                FileUpload::make('image')
+                    ->label('Thumbnail Artikel')
+                    ->disk('public')
+                    ->directory('kegiatan')
+                    ->image()
+                    ->required()
+                    ->columnSpanfull(),
                 RichEditor::make('content')
                     ->label('Deskripsi Informasi Layanan')
                     ->required()

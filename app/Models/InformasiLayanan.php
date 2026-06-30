@@ -15,6 +15,7 @@ class InformasiLayanan extends Model
         'id_kategori_layanan',
         'title',
         'content',
+        'image'
     ];
  
     // Relationships

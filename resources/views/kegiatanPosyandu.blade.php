@@ -9,7 +9,7 @@
 <body>
 @extends('layouts.app')
 
-@section('title', 'Kegiatan OPD')
+@section('title', 'Kegiatan Posyandu')
 
 @section('content')
 
@@ -62,7 +62,7 @@
     .filter-bar {
         background: var(--white);
         border-bottom: 1px solid var(--border);
-        padding: 1rem 2rem;
+        padding: 1rem;
         /* position: sticky; */
         top: 68px;
         z-index: 99;
@@ -323,7 +323,7 @@
         opacity: 0.4;
         pointer-events: none;
     }
-     /* ── SEARCH BOX ── */
+    /* ── SEARCH BOX ── */
     .layanan-search {
         display: flex;
         align-items: center;
@@ -371,12 +371,12 @@
 <div class="page-hero">
     <div class="page-hero-label">
         <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-3H7V4h2v5z"/></svg>
-        Portal Kegiatan OPD
+        Portal Kegiatan Posyandu
     </div>
-    <h1>Kegiatan OPD</h1>
+    <h1>Kegiatan Posyandu</h1>
     <p>Dokumentasi seluruh kegiatan, program, dan aktivitas yang dilaksanakan oleh Organisasi Perangkat Daerah.</p>
 </div>
-
+{{-- 
 {{-- FILTER BAR --}}
 <div class="filter-bar">
     <div class="filter-bar-inner">
@@ -397,11 +397,12 @@
     </div>
 </div>
 
-
 {{-- KEGIATAN LIST --}}
 <section class="kegiatan-section">
     <div class="kegiatan-section-inner">
+        
         <p class="kegiatan-count">Menampilkan <span>{{ $kegiatans->total() }}</span> kegiatan</p>
+        
 
         @if($kegiatans->count() > 0)
             <div class="kegiatan-grid">
@@ -436,7 +437,7 @@
                             <div class="kegiatan-avatar">{{ strtoupper(substr($kegiatan->user->name ?? 'A', 0, 1)) }}</div>
                             <span class="kegiatan-author-name">{{ $kegiatan->user->name ?? 'Admin' }}</span>
                         </div>
-                        <a href="{{ route('kegiatan.show', $kegiatan->slug ?? $kegiatan->id) }}" class="kegiatan-read-more">
+                        <a href="{{ route('kegiatanposyandu.show', $kegiatan->slug ?? $kegiatan->id) }}" class="kegiatan-read-more">
                             Selengkapnya
                             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>

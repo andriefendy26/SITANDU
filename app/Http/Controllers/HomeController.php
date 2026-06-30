@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\KategoriLayanan;
 use App\Models\KegiatanOpd;
+use App\Models\KegiatanPosyandu;
 use App\Models\Article;
 use App\Models\Dokumen;
 
@@ -17,6 +18,12 @@ class HomeController extends Controller
 
         // Seksi Kegiatan OPD: ambil 3 kegiatan terbaru beserta kategorinya
         $kegiatan = KegiatanOpd::with(['user', 'kategori'])
+            ->latest()
+            ->take(3)
+            ->get();
+
+        // Seksi Kegiatan OPD: ambil 3 kegiatan terbaru beserta kategorinya
+        $kegiatanPosyandu = KegiatanPosyandu::with(['user', 'kategori'])
             ->latest()
             ->take(3)
             ->get();
@@ -38,12 +45,14 @@ class HomeController extends Controller
             'layanan'  => KategoriLayanan::count(),
             'dokumen'  => Dokumen::count(),
             'kegiatan' => KegiatanOpd::count(),
+            'kegiatanPosyandu' => KegiatanPosyandu::count(),
             'artikel'  => Article::count(),
         ];
 
         return view('welcome', compact(
             'layanan',
             'kegiatan',
+            'kegiatanPosyandu',
             'artikels',
             'dokumens',
             'stats'
