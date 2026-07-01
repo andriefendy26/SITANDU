@@ -9,6 +9,17 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
+
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+use Filament\Tables\Filters\TrashedFilter;
 
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
@@ -37,12 +48,9 @@ class UnitsTable
                     //     ->toggleable(isToggledHiddenByDefault: true),
                 ])
             ])
-            ->contentGrid([
-                'md' => 2,
-                'xl' => 3,
-            ])
             ->filters([
                 //
+                TrashedFilter::make(),
             ])
             ->headerActions([
                 CreateAction::make()
@@ -52,10 +60,15 @@ class UnitsTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
+                ForceDeleteAction::make(),
+                RestoreAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+                    ForceDeleteBulkAction::make(),
+                    RestoreBulkAction::make(),
                 ]),
             ]);
     }
