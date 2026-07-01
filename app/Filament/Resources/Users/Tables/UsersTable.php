@@ -6,17 +6,32 @@ use App\Models\User;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\CreateAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+use Filament\Tables\Filters\TrashedFilter;
+
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\FontWeight;
 use Filament\Support\Enums\IconPosition;
+
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
+
 use Filament\Tables\Enums\RecordActionsPosition;
 use Filament\Tables\Table;
-use Filament\Actions\CreateAction;
+
+
 
 class UsersTable
 {
@@ -53,11 +68,9 @@ class UsersTable
                     ])->alignment(Alignment::End),
                 ]),
             ])
-            ->contentGrid([
-                'md' => 2,
-                'xl' => 3,
+            ->filters([
+                TrashedFilter::make(),
             ])
-            ->filters([])
             ->headerActions([
                 CreateAction::make()
                     ->label("Tambahkan Pengguna")
@@ -66,10 +79,15 @@ class UsersTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
+                ForceDeleteAction::make(),
+                RestoreAction::make(),
             ], position: RecordActionsPosition::AfterColumns)
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+                    ForceDeleteBulkAction::make(),
+                    RestoreBulkAction::make(),
                 ]),
             ]);
     }

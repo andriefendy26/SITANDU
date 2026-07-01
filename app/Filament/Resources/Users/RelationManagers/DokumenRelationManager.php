@@ -24,7 +24,7 @@ class DokumenRelationManager extends RelationManager
     protected static ?string $title = 'Dokumen';
 
 
-    protected static ?string $relatedResource = UserResource::class;
+    // protected static ?string $relatedResource = UserResource::class;
 
     public function form(Schema $schema): Schema
     {
