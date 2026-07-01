@@ -233,9 +233,13 @@
         color: var(--text-mid);
     }
     .artikel-prose img {
+        display: block;
+        margin: 0 auto;
         max-width: 100%;
-        border-radius: var(--radius);
-        margin: 1.5rem 0;
+        max-height: 400px;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
     }
     .artikel-prose a {
         color: var(--primary);

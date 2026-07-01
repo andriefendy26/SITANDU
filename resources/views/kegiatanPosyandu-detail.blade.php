@@ -293,7 +293,15 @@
     }
     .layanan-prose tr:last-child td { border-bottom: none; }
     .layanan-prose tr:nth-child(even) td { background: rgba(245,243,238,0.5); }
-
+    .layanan-prose img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 400px;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
     /* Callout box */
     .layanan-callout {
         background: rgba(27,58,107,0.05);

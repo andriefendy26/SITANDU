@@ -33,7 +33,7 @@ class InformasiLayananForm
                 FileUpload::make('image')
                     ->label('Thumbnail Artikel')
                     ->disk('public')
-                    ->directory('kegiatan')
+                    ->directory('informasi')
                     ->image()
                     ->required()
                     ->columnSpanfull(),
