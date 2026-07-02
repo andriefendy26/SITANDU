@@ -16,6 +16,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 use App\Filament\Clusters\Master\MasterCluster;
+use Illuminate\Database\Eloquent\Builder;
 
 class InformasiLayananResource extends Resource
 {
@@ -42,6 +43,19 @@ class InformasiLayananResource extends Resource
     {
         return 'Informasi';
     }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
+        if (! auth()->user()->hasRole('super_admin')) {
+            $query->where('id_user', auth()->id());
+        }
+
+        return $query;
+    }
+
 
     public static function getRelations(): array
     {
