@@ -13,11 +13,11 @@ class KegiatanPosyanduRelationManager extends RelationManager
 {
     protected static string $relationship = 'kegiatanPosyandu';
 
-    protected static ?string $relatedResource = UnitResource::class;
+    // protected static ?string $relatedResource = UnitResource::class;
     protected static ?string $title = 'Kegiatan Posyandu';
 
     public function table(Table $table): Table
-    {
+    {   
         return $table
             ->columns([
                 TextColumn::make('user.name')

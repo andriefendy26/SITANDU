@@ -12,7 +12,7 @@ class DokumenRelationManager extends RelationManager
 {
     protected static string $relationship = 'Dokumen';
 
-    protected static ?string $relatedResource = UnitResource::class;
+    // protected static ?string $relatedResource = UnitResource::class;
     protected static ?string $title = 'Dokumen';
 
     public function table(Table $table): Table

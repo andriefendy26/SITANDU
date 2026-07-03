@@ -13,7 +13,7 @@ class KegiatanOpdRelationManager extends RelationManager
 {
     protected static string $relationship = 'kegiatanOpd';
 
-    protected static ?string $relatedResource = UnitResource::class;
+    // protected static ?string $relatedResource = UnitResource::class;
 
     protected static ?string $title = 'Kegiatan OPD';
 
