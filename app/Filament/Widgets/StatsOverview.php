@@ -17,7 +17,8 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         $user = auth()->user();
-        $isSuperAdmin = $user->hasRole('super_admin');
+        // $isSuperAdmin = $user->hasRole('super_admin');
+        $isSuperAdmin = $user->hasRole('super_admin') || $user->hasRole('pengunjung');
 
         // Helper closure: filter by user jika bukan super_admin
         $forUser = fn($query) => $isSuperAdmin
