@@ -52,13 +52,17 @@ class KegiatanPosyanduResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
+        $user = auth()->user();
 
-        // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
-        if (! auth()->user()->hasRole('super_admin')) {
-            $query->where('id_user', auth()->id());
+        if (! $user) {
+            return $query;
         }
 
-        return $query;
+        if ($user->hasRole('super_admin') || $user->can('ViewAny:KegiatanPosyandu')) {
+            return $query;
+        }
+
+        return $query->where('id_user', $user->id);
     }
 
     public static function getPluralLabel(): string

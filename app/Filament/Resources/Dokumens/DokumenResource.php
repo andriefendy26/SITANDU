@@ -50,9 +50,10 @@ class DokumenResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
+        $user = auth()->user();
 
         // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
-        if (! auth()->user()->hasRole('super_admin')) {
+        if (! auth()->user()->hasRole('super_admin') || $user->can('ViewAny:Dokumen')) {
             $query->where('id_user', auth()->id());
         }
 
