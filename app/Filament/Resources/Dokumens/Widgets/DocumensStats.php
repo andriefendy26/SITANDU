@@ -9,6 +9,11 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class DocumensStats extends StatsOverviewWidget
 {
+    public static function canView(): bool
+    {
+        return auth()->user()->hasAnyRole(['super_admin', 'admin', 'Pengunjung']);
+    }
+
     protected function getStats(): array
     {
         return [

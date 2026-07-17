@@ -47,17 +47,33 @@ class DokumenResource extends Resource
         return 'Dokumen';
     }
 
+    // public static function getEloquentQuery(): Builder
+    // {
+    //     $query = parent::getEloquentQuery();
+    //     $user = auth()->user();
+
+    //     // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
+    //     if (! auth()->user()->hasRole('super_admin') || auth()->user()->hasRole('Pengunjung')   || $user->can('ViewAny:Dokumen')) {
+    //         $query->where('id_user', auth()->id());
+    //     }
+
+    //     return $query;
+    // }
+
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
         $user = auth()->user();
 
-        // Jika bukan super_admin, tampilkan hanya dokumen milik sendiri
-        if (! auth()->user()->hasRole('super_admin') || $user->can('ViewAny:Dokumen')) {
-            $query->where('id_user', auth()->id());
+        if (! $user) {
+            return $query;
         }
 
-        return $query;
+        if ($user->hasRole('super_admin') || $user->can('ViewAny:Dokumen')) {
+            return $query;
+        }
+
+        return $query->where('id_user', $user->id);
     }
 
     public static function getPages(): array
