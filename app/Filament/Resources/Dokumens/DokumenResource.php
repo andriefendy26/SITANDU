@@ -69,10 +69,12 @@ class DokumenResource extends Resource
             return $query;
         }
 
-        if ($user->hasRole('super_admin') || $user->can('ViewAny:Dokumen')) {
+        if ($user->hasRole('super_admin')) {
             return $query;
         }
-
+        // if ($user->hasRole('super_admin') || $user->can('ViewAny:Dokumen')) {
+        //     return $query;
+        // }
         return $query->where('id_user', $user->id);
     }
 
