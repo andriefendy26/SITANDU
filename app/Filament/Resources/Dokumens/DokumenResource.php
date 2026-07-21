@@ -69,7 +69,7 @@ class DokumenResource extends Resource
             return $query;
         }
 
-        if ($user->hasRole('super_admin')) {
+        if ($user->hasRole('super_admin') || $user->hasRole('Pengunjung')) {
             return $query;
         }
         // if ($user->hasRole('super_admin') || $user->can('ViewAny:Dokumen')) {
