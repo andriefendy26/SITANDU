@@ -8,7 +8,6 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-
 use Filament\Actions\CreateAction;
 
 
@@ -26,6 +25,12 @@ class InformasiLayanansTable
                     ->sortable(),
                 TextColumn::make('title')
                     ->searchable(),
+                TextColumn::make('documents_count')
+                    ->label('Dokumen')
+                    ->getStateUsing(fn ($record) => $record->documents()->count())
+                    ->sortable()
+                    ->badge()
+                    ->color('success'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -20,15 +20,20 @@ class Article extends Model
         'content',
         'image',
     ];
- 
+
     // Relationships
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
- 
+
     public function category()
     {
         return $this->belongsTo(CategoryArticle::class, 'id_category_articles');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(ArticleDocument::class, 'id_article');
     }
 }

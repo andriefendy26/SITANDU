@@ -23,7 +23,7 @@ class LayananController extends Controller
         $layanans = InformasiLayanan::query()
             ->when($request->kategori, fn($q) => $q->where('id_kategori_layanan', $request->kategori)) // ✅ fix
             ->when($request->search, fn($q) => $q->where('title', 'like', "%{$request->search}%"))
-            ->with('kategori')
+            ->with(['kategori', 'documents'])
             ->paginate(12);
 
         $kategoris = KategoriLayanan::with('informasiLayanan')->get();
@@ -33,7 +33,7 @@ class LayananController extends Controller
 
     public function show($id)
     {
-        $layanan = InformasiLayanan::with(['user', 'kategori'])->findOrFail($id);
+        $layanan = InformasiLayanan::with(['user', 'kategori', 'documents'])->findOrFail($id);
 
         // Layanan terkait dari kategori yang sama
         $related = InformasiLayanan::where('id_kategori_layanan', $layanan->id_kategori_layanan)

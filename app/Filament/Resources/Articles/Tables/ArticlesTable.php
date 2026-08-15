@@ -32,6 +32,12 @@ class ArticlesTable
                     ->badge()
                     ->numeric()
                     ->sortable(),
+                TextColumn::make('documents_count')
+                    ->label('Dokumen')
+                    ->getStateUsing(fn ($record) => $record->documents()->count())
+                    ->sortable()
+                    ->badge()
+                    ->color('success'),
                 TextColumn::make('slug')
                     ->searchable(),
                 TextColumn::make('created_at')

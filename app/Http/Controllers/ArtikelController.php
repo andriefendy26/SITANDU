@@ -9,7 +9,7 @@ class ArtikelController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Article::with(['user', 'category'])->latest();
+        $query = Article::with(['user', 'category', 'documents'])->latest();
  
         if ($request->filled('kategori')) {
             $query->where('id_category_articles', $request->kategori);
@@ -30,7 +30,7 @@ class ArtikelController extends Controller
  
     public function show($slug)
     {
-        $artikel = Article::with(['user', 'category'])
+        $artikel = Article::with(['user', 'category', 'documents'])
             ->where('slug', $slug)
             ->orWhere('id', $slug)
             ->firstOrFail();

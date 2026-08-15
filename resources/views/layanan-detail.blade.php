@@ -663,6 +663,24 @@
                 </div>
             </div>
 
+            {{-- Dokumen Pendukung --}}
+            @if($layanan->documents->count() > 0)
+            <div class="sidebar-widget">
+                <div class="sidebar-widget-title">Dokumen Pendukung</div>
+                @foreach($layanan->documents as $doc)
+                <a href="{{ asset('storage/' . $doc->file_path) }}" target="_blank"
+                   style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:var(--white);border:1.5px solid var(--primary);border-radius:var(--radius);color:var(--primary);font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;margin-bottom:8px;width:100%;"
+                   onmouseover="this.style.background='var(--primary)';this.style.color='var(--white)'"
+                   onmouseout="this.style.background='var(--white)';this.style.color='var(--primary)'">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    {{ strtoupper(pathinfo($doc->file_path, PATHINFO_EXTENSION)) }} Dokumen
+                </a>
+                @endforeach
+            </div>
+            @endif
+
             {{-- Layanan terkait --}}
             @if(isset($related) && $related->count() > 0)
             <div class="sidebar-widget">

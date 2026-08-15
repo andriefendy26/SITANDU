@@ -17,15 +17,20 @@ class InformasiLayanan extends Model
         'content',
         'image'
     ];
- 
+
     // Relationships
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
- 
+
     public function kategori()
     {
         return $this->belongsTo(KategoriLayanan::class, 'id_kategori_layanan');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(InformasiLayananDocument::class, 'id_informasi_layanan');
     }
 }
